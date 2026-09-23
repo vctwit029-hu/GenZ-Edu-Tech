@@ -574,11 +574,13 @@ function About() {
           </div>
 
           <p>
-            GenZ Edu Tech focuses on practical skill development, digital
-            skills, programming, freelancing, career guidance, placement
-            preparation and industry-oriented learning. We help students
-            understand future career opportunities, then take a first useful
-            step toward them.
+            <p>
+  GenZ Edu Tech provides practical training in digital marketing,
+  programming, AI, freelancing, career development and placement
+  preparation. We help students, professionals and aspiring freelancers
+  develop job-ready skills, explore career opportunities and gain
+  practical experience for the digital world.
+</p>
           </p>
 
           <a
