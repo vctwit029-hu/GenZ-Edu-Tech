@@ -1,5 +1,7 @@
 
 import { useState } from 'react';
+import companyLogo from './assets/genz-logo.png';
+import founderPhoto from './assets/founder-megadharshini.png';
 import {
   ArrowRight,
   Check,
