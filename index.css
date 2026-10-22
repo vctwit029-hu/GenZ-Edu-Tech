@@ -330,3 +330,154 @@ button:focus-visible, a:focus-visible { outline: 3px solid hsl(var(--accent) / .
   .syllabus-level ul { grid-template-columns: 1fr; }
   .syllabus-content { padding-top: 62px; }
 }
+
+/* ===== GenZ Edu Tech: readability and layout improvements ===== */
+
+:root {
+  --primary: #0A2F6B;
+  --primary-dark: #061D44;
+  --accent: #1D6DFF;
+  --gold: #F4B400;
+  --gold-light: #FFD95A;
+  --background: #F8FAFF;
+  --white: #FFFFFF;
+  --text: #16325C;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--background);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 5vw, 4.5rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -1.5px;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem) !important;
+  line-height: 1.2 !important;
+  margin-bottom: 22px;
+}
+
+h3 {
+  font-size: clamp(1.3rem, 2vw, 1.65rem) !important;
+  line-height: 1.35 !important;
+}
+
+p, li {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+section {
+  padding-top: clamp(64px, 8vw, 104px) !important;
+  padding-bottom: clamp(64px, 8vw, 104px) !important;
+  scroll-margin-top: 80px;
+}
+
+button, a[role="button"] {
+  min-height: 46px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Keep common content containers from stretching too wide */
+.container,
+.section-container,
+.content-container {
+  width: min(1160px, calc(100% - 48px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Give cards breathing room */
+.card,
+.course-card,
+.service-card,
+.testimonial-card {
+  padding: 26px;
+  border-radius: 20px;
+  line-height: 1.7;
+}
+
+/* Make images look clean without stretching */
+.founder-image,
+.founder-photo {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.logo,
+.nav-logo,
+header img {
+  object-fit: contain;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 10vw, 3.2rem) !important;
+    letter-spacing: -0.8px;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 7vw, 2.4rem) !important;
+  }
+
+  p, li {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  section {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .container,
+  .section-container,
+  .content-container {
+    width: calc(100% - 32px);
+  }
+
+  .card,
+  .course-card,
+  .service-card,
+  .testimonial-card {
+    padding: 20px;
+  }
+
+  button {
+    max-width: 100%;
+    white-space: normal;
+  }
+}
+
