@@ -8,80 +8,80 @@ const processSteps: [string, string][] = [
   ['04', 'Test and launch'],
 ];
 
+const websitePackages = [
+  {
+    name: 'ESSENTIAL WEBSITE',
+    price: '₹9,999',
+    description: 'For startups, local businesses and individual professionals.',
+    features: [
+      'Up to 3 pages',
+      'Mobile-responsive design',
+      'About, services and contact sections',
+      'WhatsApp contact button',
+      'Basic on-page SEO',
+      'Testing and deployment labour',
+    ],
+  },
+  {
+    name: 'BUSINESS WEBSITE',
+    price: '₹14,999',
+    description: 'For growing and established businesses.',
+    features: [
+      'Up to 6 professional pages',
+      'Custom branded UI/UX',
+      'Enquiry form and WhatsApp integration',
+      'Basic SEO and analytics setup',
+      'Mobile and performance optimisation',
+      'Deployment and launch testing',
+    ],
+  },
+  {
+    name: 'PREMIUM BUSINESS',
+    price: '₹24,999',
+    description: 'For companies looking for a distinctive digital presence.',
+    features: [
+      'Up to 10 pages',
+      'Premium custom design and animations',
+      'Advanced service or portfolio sections',
+      'Enquiry form and WhatsApp integration',
+      'SEO foundations and analytics',
+      'Performance optimisation and deployment',
+    ],
+  },
+  {
+    name: 'E-COMMERCE WEBSITE',
+    price: 'From ₹39,999',
+    description: 'For businesses selling products online.',
+    features: [
+      'Product catalogue and categories',
+      'Shopping cart and checkout',
+      'Payment gateway integration',
+      'Order management setup',
+      'Responsive storefront',
+      'Testing and production deployment',
+    ],
+  },
+  {
+    name: 'CUSTOM WEB APPLICATION',
+    price: 'From ₹59,999',
+    description: 'For businesses needing portals, dashboards or custom systems.',
+    features: [
+      'Custom frontend and backend',
+      'Database and authentication, if required',
+      'Admin dashboard',
+      'Custom business workflows',
+      'Integration and functionality testing',
+      'Deployment based on project requirements',
+    ],
+  },
+];
+
+const websiteEnquiryLink = (packageName: string, price: string) =>
+  `https://wa.me/916369216076?text=${encodeURIComponent(
+    `Hello GenZ Edu Tech, I would like to enquire about the ${packageName} website package listed at ${price}. Please share the scope, delivery timeline, domain and hosting costs, and quotation details.`
+  )}`;
+
 function Developers() {
-  const websitePackages = [
-    {
-      name: 'ESSENTIAL WEBSITE',
-      price: '₹9,999',
-      description: 'For startups, local businesses and individual professionals.',
-      features: [
-        'Up to 3 pages',
-        'Mobile-responsive design',
-        'About, services and contact sections',
-        'WhatsApp contact button',
-        'Basic on-page SEO',
-        'Testing and deployment labour',
-      ],
-    },
-    {
-      name: 'BUSINESS WEBSITE',
-      price: '₹14,999',
-      description: 'For growing and established businesses.',
-      features: [
-        'Up to 6 professional pages',
-        'Custom branded UI/UX',
-        'Enquiry form and WhatsApp integration',
-        'Basic SEO and analytics setup',
-        'Mobile and performance optimisation',
-        'Deployment and launch testing',
-      ],
-    },
-    {
-      name: 'PREMIUM BUSINESS',
-      price: '₹24,999',
-      description: 'For companies looking for a more distinctive digital presence.',
-      features: [
-        'Up to 10 pages',
-        'Premium custom design and animations',
-        'Advanced service or portfolio sections',
-        'Enquiry form and WhatsApp integration',
-        'SEO foundations and analytics',
-        'Performance optimisation and deployment',
-      ],
-    },
-    {
-      name: 'E-COMMERCE WEBSITE',
-      price: 'From ₹39,999',
-      description: 'For businesses selling products online.',
-      features: [
-        'Product catalogue and categories',
-        'Shopping cart and checkout',
-        'Payment gateway integration',
-        'Order management setup',
-        'Responsive storefront',
-        'Testing and production deployment',
-      ],
-    },
-    {
-      name: 'CUSTOM WEB APPLICATION',
-      price: 'From ₹59,999',
-      description: 'For businesses needing portals, dashboards or custom systems.',
-      features: [
-        'Custom frontend and backend',
-        'Database and authentication, if required',
-        'Admin dashboard',
-        'Custom business workflows',
-        'Integration and functionality testing',
-        'Deployment based on project requirements',
-      ],
-    },
-  ];
-
-  const websiteEnquiryLink = (packageName: string, price: string) =>
-    `https://wa.me/916369216076?text=${encodeURIComponent(
-      `Hello GenZ Edu Tech, I would like to enquire about the ${packageName} website package listed at ${price}. Please share the scope, delivery timeline, domain and hosting costs, and quotation details.`
-    )}`;
-
   return (
     <section
       id="developers"
@@ -96,6 +96,7 @@ function Developers() {
               Need a website for your business?
             </h2>
           </div>
+
           <p>
             We design and develop modern, professional and mobile-friendly
             websites that help businesses strengthen their digital presence,
@@ -106,13 +107,8 @@ function Developers() {
         <div className="dev-pricing">
           {websitePackages.map((websitePackage, index) => (
             <article
-              className={`price-card ${
-                index === 1 ? 'featured' : ''
-              }`}
+              className={`price-card ${index === 1 ? 'featured' : ''}`}
               key={websitePackage.name}
-              data-testid={`card-package-${websitePackage.name
-                .toLowerCase()
-                .replaceAll(' ', '-')}`}
             >
               {index === 1 && (
                 <span className="popular">Popular Choice</span>
@@ -125,8 +121,8 @@ function Developers() {
               <ul>
                 {websitePackage.features.map((feature) => (
                   <li key={feature}>
-                    <Check size={14} />
-                    {feature}
+                    <Check size={14} aria-hidden="true" />
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -140,10 +136,7 @@ function Developers() {
                   index === 1 ? 'btn-gold' : 'btn-primary'
                 }`}
                 target="_blank"
-                rel="noreferrer"
-                data-testid={`link-package-${websitePackage.name
-                  .toLowerCase()
-                  .replaceAll(' ', '-')}`}
+                rel="noopener noreferrer"
               >
                 Discuss This Package <ArrowRight size={14} />
               </a>
@@ -159,13 +152,16 @@ function Developers() {
 
         <div className="services-row">
           <article className="service-panel">
-            <div className="eyebrow">Domain & hosting</div>
+            <div className="eyebrow">Domain &amp; hosting</div>
             <h3>YOUR WEBSITE, ONLINE</h3>
             <div className="service-price">Quoted Separately</div>
 
             <ul>
               <li>Domain registration: approximately ₹700–₹1,500/year</li>
-              <li>Hosting: approximately ₹0–₹8,000+/year for suitable small websites</li>
+              <li>
+                Hosting: approximately ₹0–₹8,000+/year for suitable small
+                websites
+              </li>
               <li>SSL certificate, where supported by the hosting provider</li>
               <li>Backend, database and paid service costs where required</li>
               <li>Third-party subscriptions and renewals</li>
@@ -184,7 +180,7 @@ function Developers() {
               )}
               className="btn btn-primary"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               Ask About Hosting <ArrowRight size={14} />
             </a>
@@ -192,10 +188,8 @@ function Developers() {
 
           <article className="service-panel light">
             <div className="eyebrow">Ongoing support</div>
-            <h3>KEEP YOUR WEBSITE FRESH & RUNNING</h3>
-            <div className="service-price">
-              From ₹1,499 / Month
-            </div>
+            <h3>KEEP YOUR WEBSITE FRESH &amp; RUNNING</h3>
+            <div className="service-price">From ₹1,499 / Month</div>
 
             <ul>
               <li>Regular website updates within the agreed scope</li>
@@ -218,7 +212,7 @@ function Developers() {
               )}
               className="btn btn-primary"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               Discuss Maintenance <ArrowRight size={14} />
             </a>
@@ -227,7 +221,7 @@ function Developers() {
 
         <div className="service-panel deployment-panel">
           <div className="eyebrow">Launch with confidence</div>
-          <h3>Development, Deployment & Ownership</h3>
+          <h3>Development, Deployment &amp; Ownership</h3>
 
           <p>
             Deployment labour is included in the website packages listed
@@ -255,14 +249,16 @@ function Developers() {
             )}
             className="btn btn-primary"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             Discuss Your Project <ArrowRight size={14} />
           </a>
         </div>
 
         <div className="process">
-          <h3>From first conversation to a website built for your business.</h3>
+          <h3>
+            From first conversation to a website built for your business.
+          </h3>
 
           <div className="process-list">
             {processSteps.map(([number, label]) => (
@@ -276,4 +272,8 @@ function Developers() {
       </div>
     </section>
   );
+}
+
+export default function App() {
+  return <Developers />;
 }
