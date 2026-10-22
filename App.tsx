@@ -1,4 +1,13 @@
 
+import { ArrowRight, Check } from 'lucide-react';
+
+const processSteps: [string, string][] = [
+  ['01', 'Discuss your requirements'],
+  ['02', 'Plan the design and features'],
+  ['03', 'Develop and review'],
+  ['04', 'Test and launch'],
+];
+
 function Developers() {
   const websitePackages = [
     {
