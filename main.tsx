@@ -1,14 +1,17 @@
 ```tsx
 import { createRoot } from 'react-dom/client';
-
 import App from './App';
 import './index.css';
 
 const rootElement = document.getElementById('root');
 
 if (!rootElement) {
-  throw new Error('Root element "#root" was not found in index.html.');
+  throw new Error(
+    'Unable to start GenZ Edu Tech: the #root element is missing from index.html.'
+  );
 }
 
-createRoot(rootElement).render(<App />);
+createRoot(rootElement).render(
+  <App />
+);
 ```
