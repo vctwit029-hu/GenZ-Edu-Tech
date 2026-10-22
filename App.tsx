@@ -153,6 +153,186 @@ export default function App() {
   --gold-light: #ffd95a;
   --white: #ffffff;
 }
+/* GenZ Edu Tech — logo-matched colour theme */
+
+body,
+.site {
+  background: #f8faff;
+  color: #16325c;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom-color: #dfe6f2;
+}
+
+.topline {
+  background: linear-gradient(
+    90deg,
+    #061d44,
+    #1d6dff,
+    #f4b400,
+    #ffd95a
+  );
+}
+
+.brand-name,
+.hero h1,
+.section-heading h2,
+.about-copy h2,
+.dev-intro h2,
+.founder-copy h2 {
+  color: #0a2f6b;
+}
+
+.brand-tag {
+  color: #b78300;
+}
+
+.hero {
+  background:
+    radial-gradient(ellipse at 85% 25%, #fff0bf 0, transparent 35%),
+    radial-gradient(ellipse at 8% 85%, #e5edff 0, transparent 38%),
+    linear-gradient(135deg, #ffffff, #f3f6ff);
+}
+
+.hero h1 em {
+  color: #1d6dff;
+}
+
+.hero-orbit {
+  background: linear-gradient(145deg, #1d6dff, #061d44);
+  box-shadow: 0 30px 70px #0a2f6b24;
+}
+
+.btn {
+  background: #0a2f6b;
+  color: #ffffff;
+}
+
+.btn:hover {
+  background: #061d44;
+}
+
+.btn-gold {
+  background: #f4b400;
+  color: #061d44;
+}
+
+.btn-gold:hover {
+  background: #ffd95a;
+  color: #061d44;
+}
+
+.btn-light {
+  background: #ffffff;
+  color: #0a2f6b;
+  border-color: #d5e1f5;
+}
+
+.eyebrow,
+.course-category {
+  color: #a77500;
+}
+
+.trust-band {
+  background: #ffffff;
+  border-color: #dfe6f2;
+}
+
+.trust-grid strong,
+.course-price,
+.price,
+.contact-item {
+  color: #0a2f6b;
+}
+
+.courses-section,
+.commitment-section {
+  background: #f3f6ff;
+}
+
+.course-card,
+.price-card,
+.commitment-card,
+.contact-info,
+.contact-action {
+  background: #ffffff;
+  border-color: #dfe6f2;
+}
+
+.course-icon {
+  background: #eaf0ff;
+  color: #1d6dff;
+}
+
+.filter-btn.active {
+  background: #0a2f6b;
+  border-color: #0a2f6b;
+}
+
+.price-card.featured {
+  border-color: #f4b400;
+}
+
+.popular {
+  background: #fff0bf;
+  color: #765000;
+}
+
+.why-section,
+.founder-section {
+  background: #eaf0ff;
+}
+
+.about-panel,
+.service-box {
+  background: #f0f4ff;
+  border-color: #dfe6f2;
+}
+
+.service-box.light {
+  background: #fff6dc;
+}
+
+.crt-section {
+  background: linear-gradient(135deg, #061d44, #0a2f6b);
+}
+
+.crt-section .eyebrow {
+  color: #ffd95a;
+}
+
+.crt-panel {
+  background: #ffffff;
+  color: #16325c;
+}
+
+.crt-list .check-item svg {
+  color: #ffd95a;
+}
+
+.founder-photo-frame {
+  background: #d9e5ff;
+}
+
+.founder-caption strong {
+  color: #0a2f6b;
+}
+
+footer {
+  background: #061d44;
+  color: #ffffff;
+}
+
+.footer-row p,
+.footer-links a {
+  color: #d7e3ff;
+}
+
+.footer-links a:hover {
+  color: #ffd95a;
+}
       `}</style>
 
       <div className="site">
