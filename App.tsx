@@ -3,6 +3,16 @@ import { useState } from 'react';
 import { Menu, X, ArrowRight, Check, MessageCircle } from 'lucide-react';
 import companyLogo from './assets/genz-logo.png';
 import founderPhoto from './assets/founder-megadharshini.png';
+import { useEffect, useState } from 'react';
+import {
+  Menu,
+  X,
+  ArrowRight,
+  Check,
+  MessageCircle,
+  Moon,
+  Sun,
+} from 'lucide-react';
 
 const PHONE = '916369216076';
 const EMAIL = 'genzedutech@gmail.com';
