@@ -17,19 +17,19 @@
 ## Local preview
 Run `npm install`, then `npm run dev`. To verify a production build, run `npm run build`.
 
-## Course fees and durations included
-- Digital Marketing — 30 days — ₹2,999 (9 theory / 21 practical days)
-- Social Media Management — 30 days — ₹2,499 (9 / 21)
-- Content Writing — 20 days — ₹1,999 (6 / 14)
-- AI Tools & Applications — 30 days — ₹2,999 (9 / 21)
-- Freelancing & Client Acquisition — 20 days — ₹2,499 (6 / 14)
-- Python Programming — 45 days — ₹4,999 (30 / 15)
-- Java Programming — 45 days — ₹4,499 (30 / 15)
-- HTML & CSS Web Development — 30 days — ₹3,999 (20 / 10)
-- Quantitative Aptitude — 20 days — ₹1,999 (6 / 14)
-- Verbal Ability — 20 days — ₹1,499 (6 / 14)
-- Placement Training — 30 days — ₹2,999 (9 / 21)
-- Career Awareness — 7 days — ₹499 (2 / 5)
+## Updated course fees and durations
+- Digital Marketing — 30 days — ₹4,999
+- Social Media Management — 30 days — ₹4,499
+- Content Writing — 20 days — ₹3,999
+- AI Tools & Applications — 30 days — ₹14,999
+- Freelancing & Client Acquisition — 20 days — ₹4,499
+- Python Programming — 45 days — ₹6,999
+- Java Programming — 45 days — ₹6,499
+- HTML & CSS Web Development — 30 days — ₹5,999
+- Quantitative Aptitude — 20 days — ₹3,999
+- Verbal Ability — 20 days — ₹3,499
+- Placement Training — 30 days — ₹4,999
+- Career Awareness — 7 days — ₹2,499
 
 Please preview the pages and confirm all contact details and commercial claims before publishing.
 
@@ -50,3 +50,10 @@ Please preview the pages and confirm all contact details and commercial claims b
 5. After deployment, test both `/` and `/ai-solutions`, including refreshing the AI Solutions URL directly and checking the mobile menu.
 
 The AI service copy describes capabilities as configurable possibilities; actual integrations, automations and multilingual support depend on the final project scope and connected services.
+
+## AI Solutions pricing
+- Website AI Chat — ₹14,999 one-time setup
+- AI Business Assistant — ₹29,999 one-time setup
+- Custom AI Workflow Solution — from ₹49,999
+
+Setup fees include planning, development labour, AI tool configuration, integration, testing and launch. AI/API usage, hosting and paid third-party subscriptions are separate ongoing costs.
