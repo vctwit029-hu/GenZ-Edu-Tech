@@ -23,9 +23,9 @@ Run `npm install`, then `npm run dev`. To verify a production build, run `npm ru
 - Content Writing — 20 days — ₹3,999
 - AI Tools & Applications — 30 days — ₹14,999
 - Freelancing & Client Acquisition — 20 days — ₹4,499
-- Python Programming — 45 days — ₹6,999
-- Java Programming — 45 days — ₹6,499
-- HTML & CSS Web Development — 30 days — ₹5,999
+- Python Programming — 45 days — ₹16,999
+- Java Programming — 45 days — ₹16,499
+- HTML & CSS Web Development — 30 days — ₹8,999
 - Quantitative Aptitude — 20 days — ₹3,999
 - Verbal Ability — 20 days — ₹3,499
 - Placement Training — 30 days — ₹4,999
