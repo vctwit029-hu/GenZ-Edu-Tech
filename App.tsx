@@ -40,7 +40,7 @@ const packages = [
   { name: 'Premium Business', price: '₹24,999', description: 'A distinctive website for established businesses.', features: ['Up to 10 pages', 'Custom design and animations', 'Portfolio or service sections', 'Enquiry integration', 'SEO foundations', 'Performance optimisation'] },
   { name: 'E-commerce Website', price: 'From ₹39,999', description: 'For businesses selling products online.', features: ['Product catalogue', 'Shopping cart and checkout', 'Payment gateway integration', 'Order management setup', 'Responsive storefront', 'Testing and deployment'] },
   { name: 'Custom Web Application', price: 'From ₹59,999', description: 'For custom portals, dashboards and workflows.', features: ['Custom frontend and backend', 'Database and authentication if required', 'Admin dashboard', 'Business-specific workflows', 'Integration testing', 'Deployment planning'] },
-  { name: 'Website Maintenance', price: 'From ₹1,499/mo', description: 'Keep your existing website updated and maintained.', features: ['Routine content updates', 'Basic technical checks', 'Small design adjustments', 'Link and form checks', 'Support based on agreed scope'] },
+  { name: 'Website Maintenance', price: 'From ₹1,499/monthly', description: 'Keep your existing website updated and maintained.', features: ['Routine content updates', 'Basic technical checks', 'Small design adjustments', 'Link and form checks', 'Support based on agreed scope'] },
 ];
 
 const filters = ['All', 'Digital Skills', 'Programming', 'Career Skills', 'Placement Preparation'];
