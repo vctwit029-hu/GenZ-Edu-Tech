@@ -20,18 +20,18 @@ type Course = {
 };
 
 const courses: Course[] = [
-  { name: 'Digital Marketing', duration: '30 days', fee: 2999, category: 'Digital Skills', description: 'Learn how to plan, promote and measure digital campaigns using practical activities.', icon: Lightbulb, syllabus: ['Digital marketing fundamentals and customer journeys', 'SEO basics and keyword research', 'Content strategy and campaign planning', 'Paid advertising concepts and budgeting', 'Analytics, reporting and a practical campaign plan'] },
-  { name: 'Social Media Management', duration: '30 days', fee: 2499, category: 'Digital Skills', description: 'Plan content, manage social platforms and build an engaged online audience.', icon: Globe, syllabus: ['Platform selection and profile optimisation', 'Content calendars and creative briefs', 'Captions, hashtags and engagement', 'Community management and brand voice', 'Insights, reporting and a sample monthly plan'] },
-  { name: 'Content Writing', duration: '20 days', fee: 1999, category: 'Digital Skills', description: 'Build clear writing, copywriting and digital content creation skills.', icon: BookOpen, syllabus: ['Writing fundamentals and audience research', 'Blogs, website copy and product descriptions', 'Headlines, calls to action and basic SEO writing', 'Editing, proofreading and tone of voice', 'Portfolio-ready writing samples'] },
-  { name: 'AI Tools & Applications', duration: '60 days', fee: 8999, category: 'Digital Skills', description: 'Practise using AI tools for productivity, content and everyday workflows.', icon: Sparkles, syllabus: ['AI foundations and responsible use', 'Prompt writing and iterative improvement', 'Research, summarisation and document workflows', 'AI-assisted content and presentation creation', 'Productivity workflows and a final practical project'] },
-  { name: 'Freelancing & Client Acquisition', duration: '20 days', fee: 2499, category: 'Career Skills', description: 'Learn to present your skills, approach clients and prepare professional proposals.', icon: BriefcaseBusiness, syllabus: ['Choosing a service and defining an offer', 'Portfolio and profile preparation', 'Finding and qualifying potential clients', 'Outreach messages, proposals and pricing basics', 'Client communication and delivery workflow'] },
-  { name: 'Python Programming', duration: '60 days', fee: 14999, category: 'Programming', description: 'Build programming foundations through structured coding practice.', icon: Code2, syllabus: ['Setup, syntax, variables and data types', 'Conditions, loops and functions', 'Lists, tuples, dictionaries and sets', 'Files, exceptions and modules', 'Object-oriented basics and a practical project'] },
-  { name: 'Java Programming', duration: '90 days', fee: 14499, category: 'Programming', description: 'Learn Java fundamentals, object-oriented programming and coding concepts.', icon: Code2, syllabus: ['Java setup, syntax and data types', 'Conditions, loops, arrays and methods', 'Classes, objects and constructors', 'Inheritance, polymorphism and interfaces', 'Collections, exceptions and a practical project'] },
-  { name: 'HTML & CSS Web Development', duration: '30 days', fee: 7999, category: 'Programming', description: 'Create responsive websites and learn modern web layout fundamentals.', icon: Code2, syllabus: ['HTML structure, semantic elements and forms', 'CSS selectors, typography and spacing', 'Flexbox, Grid and responsive layouts', 'Navigation, cards and reusable components', 'Build and publish a responsive multi-section website'] },
-  { name: 'Quantitative Aptitude', duration: '20 days', fee: 1999, category: 'Placement Preparation', description: 'Practise numerical reasoning and common placement aptitude topics.', icon: Target, syllabus: ['Number systems and simplification', 'Percentages, ratios and averages', 'Profit, loss, interest and time-work', 'Speed, distance and data interpretation', 'Timed practice tests and review strategies'] },
-  { name: 'Verbal Ability', duration: '20 days', fee: 1499, category: 'Placement Preparation', description: 'Strengthen grammar, comprehension and verbal reasoning.', icon: BookOpen, syllabus: ['Grammar and sentence correction', 'Vocabulary and word usage', 'Reading comprehension', 'Sentence arrangement and verbal logic', 'Practice exercises and timed tests'] },
-  { name: 'Placement Training', duration: '30 days', fee: 3999, category: 'Placement Preparation', description: 'Prepare for aptitude tests, interviews and professional communication.', icon: GraduationCap, syllabus: ['Placement process and job-readiness planning', 'Aptitude and reasoning practice', 'Resume structure and profile preparation', 'Interview questions and mock interview practice', 'Professional communication and action plan'] },
-  { name: 'Career Awareness', duration: '7 days', fee: 499, category: 'Career Skills', description: 'Explore career pathways, skill requirements and practical next steps.', icon: Rocket, syllabus: ['Career interests and strengths', 'Career paths and skill requirements', 'Understanding courses, roles and industries', 'Building a practical learning roadmap', 'Personal next-step action plan'] },
+  { name: 'Digital Marketing', duration: '30 days', fee: 4999, category: 'Digital Skills', description: 'Learn how to plan, promote and measure digital campaigns using practical activities.', icon: Lightbulb, syllabus: ['Digital marketing fundamentals and customer journeys', 'SEO basics and keyword research', 'Content strategy and campaign planning', 'Paid advertising concepts and budgeting', 'Analytics, reporting and a practical campaign plan'] },
+  { name: 'Social Media Management', duration: '30 days', fee: 4499, category: 'Digital Skills', description: 'Plan content, manage social platforms and build an engaged online audience.', icon: Globe, syllabus: ['Platform selection and profile optimisation', 'Content calendars and creative briefs', 'Captions, hashtags and engagement', 'Community management and brand voice', 'Insights, reporting and a sample monthly plan'] },
+  { name: 'Content Writing', duration: '20 days', fee: 3999, category: 'Digital Skills', description: 'Build clear writing, copywriting and digital content creation skills.', icon: BookOpen, syllabus: ['Writing fundamentals and audience research', 'Blogs, website copy and product descriptions', 'Headlines, calls to action and basic SEO writing', 'Editing, proofreading and tone of voice', 'Portfolio-ready writing samples'] },
+  { name: 'AI Tools & Applications', duration: '30 days', fee: 14999, category: 'Digital Skills', description: 'Practise using AI tools for productivity, content and everyday workflows.', icon: Sparkles, syllabus: ['AI foundations and responsible use', 'Prompt writing and iterative improvement', 'Research, summarisation and document workflows', 'AI-assisted content and presentation creation', 'Productivity workflows and a final practical project'] },
+  { name: 'Freelancing & Client Acquisition', duration: '20 days', fee: 4499, category: 'Career Skills', description: 'Learn to present your skills, approach clients and prepare professional proposals.', icon: BriefcaseBusiness, syllabus: ['Choosing a service and defining an offer', 'Portfolio and profile preparation', 'Finding and qualifying potential clients', 'Outreach messages, proposals and pricing basics', 'Client communication and delivery workflow'] },
+  { name: 'Python Programming', duration: '45 days', fee: 6999, category: 'Programming', description: 'Build programming foundations through structured coding practice.', icon: Code2, syllabus: ['Setup, syntax, variables and data types', 'Conditions, loops and functions', 'Lists, tuples, dictionaries and sets', 'Files, exceptions and modules', 'Object-oriented basics and a practical project'] },
+  { name: 'Java Programming', duration: '45 days', fee: 6499, category: 'Programming', description: 'Learn Java fundamentals, object-oriented programming and coding concepts.', icon: Code2, syllabus: ['Java setup, syntax and data types', 'Conditions, loops, arrays and methods', 'Classes, objects and constructors', 'Inheritance, polymorphism and interfaces', 'Collections, exceptions and a practical project'] },
+  { name: 'HTML & CSS Web Development', duration: '30 days', fee: 5999, category: 'Programming', description: 'Create responsive websites and learn modern web layout fundamentals.', icon: Code2, syllabus: ['HTML structure, semantic elements and forms', 'CSS selectors, typography and spacing', 'Flexbox, Grid and responsive layouts', 'Navigation, cards and reusable components', 'Build and publish a responsive multi-section website'] },
+  { name: 'Quantitative Aptitude', duration: '20 days', fee: 3999, category: 'Placement Preparation', description: 'Practise numerical reasoning and common placement aptitude topics.', icon: Target, syllabus: ['Number systems and simplification', 'Percentages, ratios and averages', 'Profit, loss, interest and time-work', 'Speed, distance and data interpretation', 'Timed practice tests and review strategies'] },
+  { name: 'Verbal Ability', duration: '20 days', fee: 3499, category: 'Placement Preparation', description: 'Strengthen grammar, comprehension and verbal reasoning.', icon: BookOpen, syllabus: ['Grammar and sentence correction', 'Vocabulary and word usage', 'Reading comprehension', 'Sentence arrangement and verbal logic', 'Practice exercises and timed tests'] },
+  { name: 'Placement Training', duration: '30 days', fee: 4999, category: 'Placement Preparation', description: 'Prepare for aptitude tests, interviews and professional communication.', icon: GraduationCap, syllabus: ['Placement process and job-readiness planning', 'Aptitude and reasoning practice', 'Resume structure and profile preparation', 'Interview questions and mock interview practice', 'Professional communication and action plan'] },
+  { name: 'Career Awareness', duration: '7 days', fee: 2499, category: 'Career Skills', description: 'Explore career pathways, skill requirements and practical next steps.', icon: Rocket, syllabus: ['Career interests and strengths', 'Career paths and skill requirements', 'Understanding courses, roles and industries', 'Building a practical learning roadmap', 'Personal next-step action plan'] },
 ];
 
 const packages = [
@@ -59,10 +59,10 @@ function AiSolutionsPage() {
     { icon: ShieldCheck, title: 'Human approval where it matters', text: 'Keep sensitive decisions, payments and commitments under your team’s control.' },
   ];
   const steps = [
-    ['01', 'Understand your business', 'We learn about your products, services, customers and the tasks you want to improve.'],
-    ['02', 'Plan your AI assistant', 'We define its knowledge, conversation style, boundaries and the workflows it should support.'],
-    ['03', 'Build and connect', 'We develop the agreed experience and integrate it with your website or selected business tools.'],
-    ['04', 'Test and improve', 'We test real customer questions, refine responses and plan ongoing improvements.'],
+    ['01', 'Understand', 'We collect your business details, FAQs and customer needs.'],
+    ['02', 'Design', 'We plan the assistant, its answers and the tasks it can handle.'],
+    ['03', 'Build', 'We configure AI tools, develop the chat experience and connect your website or selected apps.'],
+    ['04', 'Test & launch', 'We test common questions, fix issues and publish your assistant.'],
   ];
   return <main className="ai-page">
     <section className="ai-hero">
@@ -109,6 +109,29 @@ function AiSolutionsPage() {
             <span>{number}</span><h3>{title}</h3><p>{text}</p>
           </article>)}
         </div>
+      </div>
+    </section>
+    <section className="section ai-pricing">
+      <div className="site-container">
+        <SectionHeading eyebrow="CLEAR, PRACTICAL PRICING" title="Choose the right starting point" description="Prices cover our planning and development labour, AI setup/configuration tools, integration, testing and launch. Final quotes depend on your requirements." />
+        <div className="ai-pricing-grid">
+          <article className="ai-price-card">
+            <span className="eyebrow">AI STARTER</span><h3>Website AI Chat</h3><div className="ai-price">₹14,999</div>
+            <p>For small businesses that want to answer common customer questions.</p>
+            <ul><li>Business information and FAQ setup</li><li>Website chat integration</li><li>Basic enquiry capture</li><li>Testing and launch</li></ul>
+          </article>
+          <article className="ai-price-card ai-price-featured">
+            <span className="eyebrow">MOST POPULAR</span><h3>AI Business Assistant</h3><div className="ai-price">₹29,999</div>
+            <p>For businesses that need smarter customer conversations and lead handling.</p>
+            <ul><li>Everything in AI Starter</li><li>Lead qualification workflows</li><li>Service or product guidance</li><li>Basic appointment/enquiry workflow</li></ul>
+          </article>
+          <article className="ai-price-card">
+            <span className="eyebrow">CUSTOM SOLUTION</span><h3>AI Workflow Solution</h3><div className="ai-price">From ₹49,999</div>
+            <p>For businesses that need custom features or connected tools.</p>
+            <ul><li>Custom assistant behaviour</li><li>Selected third-party integrations</li><li>Advanced business workflows</li><li>Testing and deployment</li></ul>
+          </article>
+        </div>
+        <div className="ai-pricing-note"><strong>What your setup fee covers:</strong> our development time, planning, AI tool configuration, website/app integration, testing and launch. <strong>Separate running costs:</strong> AI/API usage, hosting and paid third-party subscriptions are billed at provider rates. Optional maintenance and improvements start at ₹1,999/month. We confirm the final scope and quote before work begins.</div>
       </div>
     </section>
     <section className="section ai-fit">
