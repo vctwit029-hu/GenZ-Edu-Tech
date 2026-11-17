@@ -1,5 +1,11 @@
 
-<!-- GenZ Edu Tech Favicon -->
-<link rel="icon" type="image/png" href="/genz-logo.png" sizes="512x512">
-<link rel="apple-touch-icon" href="/genz-logo.png">
-<meta name="theme-color" content="#ffffff">
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="180"
+     height="180"
+     viewBox="0 0 180 180">
+  <image
+    href="/genz-logo.png"
+    width="180"
+    height="180"
+    preserveAspectRatio="xMidYMid meet"/>
+</svg>
