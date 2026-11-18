@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import companyLogo from './assets/genz-logo.png';
 import founderPhoto from './assets/founder-megadharshini.png';
+import ThreeHero from './ThreeHero';
 import './index.css';
 
 const PHONE = '916369216076';
