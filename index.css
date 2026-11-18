@@ -278,3 +278,32 @@ p{color:inherit}
 .hero-3d-satellite-two{bottom:17%;left:14%;background:linear-gradient(145deg,#dceaff,#6495d2);animation-delay:-3s}
 @keyframes hero-satellite{0%,100%{translate:0 0}50%{translate:0 -12px}}
 @media(prefers-reduced-motion:reduce){.hero-3d-satellite{animation:none}}
+
+
+/* Preserve the existing light/dark theme switch with matching 3D surfaces. */
+.site:not(.dark-mode){background:linear-gradient(180deg,#f7faff,#edf4ff 55%,#f7faff);color:#172d4e}
+.site:not(.dark-mode) .site-nav{background:rgba(248,251,255,.88);border-color:#cddbed}
+.site:not(.dark-mode) .brand,.site:not(.dark-mode) .nav-links>a:not(.btn){color:#102d52}
+.site:not(.dark-mode) .theme-toggle,.site:not(.dark-mode) .mobile-toggle{background:#e8f0fb;color:#17375e;border-color:#cbdcf1}
+.site:not(.dark-mode) .hero{background:radial-gradient(ellipse at 78% 45%,#b5d5ff77,transparent 32%),radial-gradient(ellipse at 12% 8%,#f5cf6840,transparent 30%),linear-gradient(135deg,#f8fbff,#e4efff 65%,#dceaff)}
+.site:not(.dark-mode) .hero-copy h1,.site:not(.dark-mode) .section-heading h2,.site:not(.dark-mode) .about-copy h2,.site:not(.dark-mode) .founder-copy h2,.site:not(.dark-mode) .impact-grid h2{color:#102d52}
+.site:not(.dark-mode) .hero-copy>p,.site:not(.dark-mode) .section-heading p,.site:not(.dark-mode) .about-copy p,.site:not(.dark-mode) .founder-copy p,.site:not(.dark-mode) .impact-grid p{color:#536b89}
+.site:not(.dark-mode) .hero-points{color:#17375e}
+.site:not(.dark-mode) .trust-strip{background:linear-gradient(100deg,#102d52,#1a4779)}
+.site:not(.dark-mode) .about-section,.site:not(.dark-mode) .why-section,.site:not(.dark-mode) .impact-section,.site:not(.dark-mode) .founder-section{background:linear-gradient(145deg,#f7faff,#eaf2fc)}
+.site:not(.dark-mode) .courses-section,.site:not(.dark-mode) .testimonials-section,.site:not(.dark-mode) .developers-section{background:linear-gradient(145deg,#edf4ff,#e3edfa)}
+.site:not(.dark-mode) .freelancing-section{background:linear-gradient(145deg,#e7f0fc,#f6f9ff)}
+.site:not(.dark-mode) .course-card,.site:not(.dark-mode) .benefit-card,.site:not(.dark-mode) .price-card,.site:not(.dark-mode) .quote-grid blockquote,.site:not(.dark-mode) .impact-cards>div,.site:not(.dark-mode) .freelance-panel{background:linear-gradient(145deg,#fff,#edf4ff);border-color:#cfdded;color:#172d4e;box-shadow:0 18px 38px #17375e18,inset 0 1px #fff}
+.site:not(.dark-mode) .course-card h3,.site:not(.dark-mode) .benefit-card h3,.site:not(.dark-mode) .price-card h3,.site:not(.dark-mode) .quote-grid p,.site:not(.dark-mode) .impact-cards strong,.site:not(.dark-mode) .freelance-panel h2{color:#102d52}
+.site:not(.dark-mode) .course-card>p,.site:not(.dark-mode) .benefit-card p,.site:not(.dark-mode) .price-card p,.site:not(.dark-mode) .quote-grid footer,.site:not(.dark-mode) .impact-cards span,.site:not(.dark-mode) .freelance-panel p{color:#5a6f8b}
+.site:not(.dark-mode) .course-duration{background:#e5eefb;color:#23466f}
+.site:not(.dark-mode) .course-enquire{background:#e5f0ff;color:#17528f}
+.site:not(.dark-mode) .filter-btn{background:linear-gradient(145deg,#fff,#e8f0fb);color:#17375e;border-color:#cbdcf1}
+.site:not(.dark-mode) .filter-btn.active{background:linear-gradient(145deg,#173c68,#0b2342);color:#fff}
+.site:not(.dark-mode) .dev-intro-copy h3{color:#102d52}
+.site:not(.dark-mode) .dev-intro-copy p{color:#536b89}
+.site:not(.dark-mode) .contact-action{background:linear-gradient(145deg,#fff,#e7f0fc)}
+.site:not(.dark-mode) .contact-action h3{color:#102d52}
+.site:not(.dark-mode) .contact-action p{color:#536b89}
+.site:not(.dark-mode) .nav-links{background:rgba(248,251,255,.98)}
+.site:not(.dark-mode) .nav-links>a:not(.btn){color:#102d52}
