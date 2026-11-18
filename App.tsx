@@ -157,13 +157,18 @@ export default function App() {
             </div>
           </div>
 
-          <div className="hero-visual">
-            <div className="orbit-card">
+          <div className="hero-visual hero-visual-3d">
+            <ThreeHero />
+            <div className="orbit-card hero-3d-card">
               <span className="visual-word">YOUR FUTURE STARTS HERE</span>
               <div className="visual-core"><img src={companyLogo} alt="GenZ Edu Tech" /></div>
               <span className="orbit-label label-one"><BookOpen size={17} /> Learn</span>
               <span className="orbit-label label-two"><Rocket size={17} /> Build</span>
               <span className="orbit-label label-three"><Target size={17} /> Grow</span>
+              <span className="hero-3d-ring hero-3d-ring-one" />
+              <span className="hero-3d-ring hero-3d-ring-two" />
+              <span className="hero-3d-satellite hero-3d-satellite-one"><Sparkles size={18}/></span>
+              <span className="hero-3d-satellite hero-3d-satellite-two"><Code2 size={18}/></span>
             </div>
             <div className="floating-note">
               <Sparkles size={19} />
