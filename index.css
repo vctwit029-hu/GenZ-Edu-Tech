@@ -106,3 +106,163 @@
 .course-card,.benefit-card,.price-card{transform-style:preserve-3d;backface-visibility:hidden}
 .course-card:hover,.benefit-card:hover,.price-card:hover{transform:perspective(900px) translateY(-6px) rotateX(1.2deg)}
 @media(prefers-reduced-motion:reduce){.hero-visual .orbit-card,.hero-visual .floating-note,.hero-visual .orbit-label{animation:none}}
+
+
+/* =========================================================
+   GENZ EDU TECH — IMMERSIVE 3D BRAND SYSTEM
+   Site-wide visual refresh. Existing React features preserved.
+   ========================================================= */
+:root{
+  --navy:#07172f;--navy-deep:#030b19;--blue:#70a9ff;--blue-bright:#9bc4ff;
+  --yellow:#f5cf68;--ink:#edf3ff;--muted:#a8b8d1;--paper:#0b1b34;
+  --soft:#102746;--border:rgba(159,190,235,.2);
+  --shadow:0 28px 80px rgba(0,0,0,.32);--radius:26px;
+}
+html{background:#030b19}
+body{background:#030b19;color:#edf3ff}
+.site{background:linear-gradient(180deg,#06142a 0%,#091a33 48%,#06142a 100%);color:#edf3ff}
+h1,h2,h3,h4{color:#f2f6ff}
+p{color:inherit}
+.site-container{width:min(1240px,calc(100% - 52px))}
+.section{position:relative;isolation:isolate;padding:clamp(76px,8vw,112px) 0}
+.section:before{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;opacity:.32;background-image:radial-gradient(rgba(143,181,239,.18) .7px,transparent .7px);background-size:24px 24px}
+.section-heading h2,.about-copy h2,.founder-copy h2,.contact-copy h2,.impact-grid h2{color:#f4f7ff}
+.section-heading p,.about-copy p,.founder-copy p,.impact-grid p{color:#adbed7}
+.eyebrow{color:#f5cf68}
+.eyebrow:before{background:#f5cf68}
+.site-nav{background:rgba(4,14,30,.84);border-bottom:1px solid rgba(174,199,237,.16);box-shadow:0 14px 45px #0004;backdrop-filter:blur(22px)}
+.brand{color:#f4f7ff}
+.brand small{color:#f5cf68}
+.brand img{background:#fff;border-color:#f5cf68;box-shadow:0 8px 24px #0005}
+.nav-links>a:not(.btn){color:#d9e5f8}
+.nav-links>a:not(.btn):after{background:#f5cf68}
+.theme-toggle,.mobile-toggle{background:#102746;color:#eaf2ff;border-color:#ffffff24}
+.btn{transform-style:preserve-3d;box-shadow:0 8px 0 rgba(0,0,0,.16),0 15px 28px rgba(0,0,0,.18)}
+.btn:hover{transform:translateY(-4px) rotateX(5deg);box-shadow:0 11px 0 rgba(0,0,0,.16),0 22px 35px rgba(0,0,0,.26)}
+.btn-primary{background:linear-gradient(145deg,#ffe69a,#e7b83f);color:#13233c}
+.btn-secondary{background:linear-gradient(145deg,#142d4e,#0b1b34);border-color:#456184;color:#edf3ff}
+.btn-secondary:hover{background:#1a3a63;border-color:#8bb7f5}
+.hero{min-height:650px;padding:clamp(75px,9vw,130px) 0;background:radial-gradient(ellipse at 78% 45%,rgba(40,105,187,.28),transparent 32%),radial-gradient(ellipse at 12% 8%,rgba(245,207,104,.09),transparent 30%),linear-gradient(135deg,#030b19 0%,#0a1e3b 58%,#07152b 100%)}
+.hero:before{width:600px;height:600px;right:-190px;top:-210px;border-color:#f5cf6840;box-shadow:0 0 0 55px #8db8f10a,0 0 0 115px #8db8f107,0 0 100px #2d6db533}
+.hero:after{content:"";position:absolute;z-index:-1;left:5%;bottom:-65%;width:500px;height:500px;border-radius:50%;border:1px solid #6fa8ee30;box-shadow:0 0 0 35px #6fa8ee08,0 0 0 75px #6fa8ee06;pointer-events:none}
+.hero-grid{gap:clamp(35px,6vw,85px)}
+.hero-copy h1{color:#f4f7ff;text-shadow:0 8px 38px #0007}
+.hero-copy h1 span{background:linear-gradient(100deg,#fff0b5,#e8bd59 45%,#8db9f5 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-copy>p{color:#b8c8df}
+.hero-points{color:#dce8fa}
+.hero-points svg{color:#f5cf68}
+.hero-visual{min-height:500px;perspective:1400px}
+.orbit-card{width:min(440px,100%);background:radial-gradient(circle at 32% 23%,#3269a8 0%,#15345c 38%,#06152b 75%);border:1px solid #b7d4ff44;box-shadow:0 55px 110px #0008,inset 0 3px 18px #ffffff22,inset 0 -28px 55px #0008;transform-style:preserve-3d}
+.orbit-card:before{width:84%;height:84%;border:2px solid #f5cf68a8;box-shadow:0 0 25px #f5cf6830;transform:rotateX(68deg) rotateZ(-18deg) translateZ(28px)}
+.orbit-card:after{width:65%;height:65%;border:1px solid #b5d4ff8a;transform:rotateY(68deg) rotateZ(24deg) translateZ(30px)}
+.visual-word{color:#ffe69a;text-shadow:0 0 18px #f5cf6860;transform:translateZ(48px)}
+.visual-core{transform:translateZ(68px);border:5px solid #f5cf68;box-shadow:0 22px 55px #0009,0 0 65px #83b9ff66}
+.orbit-label{background:linear-gradient(145deg,#fff,#dce9ff);color:#10284a;box-shadow:0 16px 32px #0008;transform:translateZ(70px)}
+.label-one{transform:translateZ(70px) rotateY(12deg)}
+.label-two{transform:translateZ(85px) rotateY(-12deg)}
+.label-three{transform:translateZ(60px) rotateY(9deg)}
+.floating-note{background:rgba(13,35,64,.88);border:1px solid #a9c8f44a;color:#f5cf68;backdrop-filter:blur(18px);box-shadow:0 22px 55px #0008, inset 0 1px #ffffff20;transform:translateZ(90px)}
+.floating-note strong{color:#fff}.floating-note small{color:#b5c7e0}
+.trust-strip{background:linear-gradient(100deg,#0c2545,#102f55 50%,#0b203c);border-block:1px solid #ffffff17;box-shadow:0 20px 45px #0003}
+.trust-grid div{border-color:#ffffff20}
+.trust-grid strong{color:#f5d77e}.trust-grid span{color:#c2d2e8}
+.about-section,.why-section,.impact-section,.founder-section{background:linear-gradient(145deg,#091a32,#0b203c)}
+.about-section:after,.founder-section:after{content:"";position:absolute;z-index:-1;width:340px;height:340px;right:-180px;top:10%;border:1px solid #7eb4f32c;border-radius:50%;box-shadow:0 0 0 35px #7eb4f30a,0 0 0 75px #7eb4f306}
+.about-panel{background:linear-gradient(145deg,#153b67,#07172d);border:1px solid #9fc7fa40;box-shadow:0 35px 75px #0007,inset 0 1px #ffffff20;transform:perspective(1100px) rotateY(7deg) rotateX(2deg);transform-style:preserve-3d}
+.about-panel h3{color:#fff}.about-panel p{color:#c4d4e9}
+.mini-stat{transform:translateZ(28px)}
+.stat-icon{background:linear-gradient(145deg,#274e7d,#102a4b);box-shadow:0 8px 18px #0004;color:#f5cf68}
+.check-list span{color:#dce7f7}.check-list svg{background:#18395f;color:#f5cf68}
+.text-link{color:#f5cf68}
+.courses-section,.testimonials-section{background:linear-gradient(145deg,#0d2340,#08172d)}
+.filter-btn{background:linear-gradient(145deg,#142d4c,#0b1b32);border-color:#ffffff24;color:#dbe7f8;box-shadow:0 5px 0 #020914}
+.filter-btn.active,.filter-btn:hover{background:linear-gradient(145deg,#f4d77f,#d6a93f);border-color:#f4d77f;color:#14223a}
+.course-grid,.benefit-grid,.package-grid,.quote-grid,.impact-cards{perspective:1200px}
+.course-card,.benefit-card,.price-card,.quote-grid blockquote,.impact-cards>div,.ai-capability-card,.ai-process-card{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(23,51,84,.96),rgba(8,24,45,.98));border:1px solid #a6c9f02b;color:#e8f0fc;box-shadow:0 18px 38px #0004,inset 0 1px #ffffff12;transform-style:preserve-3d;transition:transform .32s cubic-bezier(.2,.75,.25,1),box-shadow .32s,border-color .32s}
+.course-card:before,.benefit-card:before,.price-card:before,.quote-grid blockquote:before,.impact-cards>div:before{content:"";position:absolute;pointer-events:none;inset:0;background:linear-gradient(125deg,#ffffff12,transparent 32%,transparent 68%,#79aef00c);opacity:.8}
+.course-card:hover,.benefit-card:hover,.price-card:hover,.quote-grid blockquote:hover,.impact-cards>div:hover{transform:perspective(1100px) translateY(-10px) rotateX(3deg) rotateY(-2deg) translateZ(12px);border-color:#f5cf6870;box-shadow:0 32px 65px #0007,inset 0 1px #ffffff25}
+.course-icon,.benefit-icon{background:linear-gradient(145deg,#2b5687,#102c4d);color:#f5cf68;box-shadow:0 10px 22px #0004;transform:translateZ(25px)}
+.course-duration{background:#1b3a60;color:#f2d783}
+.course-category{color:#f5cf68}
+.course-card h3,.benefit-card h3,.price-card h3{color:#f2f6ff;transform:translateZ(15px)}
+.course-card>p,.benefit-card p,.price-card p{color:#b6c7de}
+.course-bottom{border-color:#ffffff20}
+.course-bottom strong,.package-price{color:#f5d77e}
+.syllabus-btn{color:#9bc4ff}
+.course-enquire{background:linear-gradient(100deg,#173b63,#102b4c);color:#d9eaff;border:1px solid #ffffff14}
+.course-note,.package-note{color:#a9bad2}
+.crt-section,.contact-section{background:radial-gradient(circle at 80% 20%,#1d4d7b66,transparent 32%),linear-gradient(130deg,#020b19,#0b2a4d 65%,#07162c);border-block:1px solid #ffffff16}
+.crt-panel{background:linear-gradient(145deg,#173a60aa,#07172dcc);border:1px solid #b5d4ff35;box-shadow:0 25px 55px #0005,inset 0 1px #ffffff18;transform:perspective(1000px) rotateY(-4deg)}
+.crt-item{color:#e5effd}.crt-item svg{color:#f5cf68}
+.benefit-card{background:linear-gradient(145deg,#173657,#0a1d35)}
+.freelancing-section{background:linear-gradient(145deg,#0b1e38,#102b4b)}
+.freelance-panel{background:linear-gradient(145deg,#173b62,#0a1b32);border:1px solid #a9c9ef38;box-shadow:0 28px 60px #0006,inset 0 1px #ffffff19;transform:perspective(1100px) rotateX(2deg)}
+.freelance-panel h2{color:#f5f7ff}.freelance-panel p{color:#b9cbe3}
+.developers-section{background:linear-gradient(145deg,#07172d,#0d2441)}
+.dev-intro-card{background:linear-gradient(145deg,#1c4775,#091a32);border:1px solid #a7c8f23d;box-shadow:0 30px 65px #0006,inset 0 1px #ffffff20;transform:perspective(1000px) rotateY(4deg)}
+.dev-intro-card p,.dev-intro-copy p{color:#b8c9df}
+.dev-intro-copy h3{color:#f4f7ff}
+.dev-symbol{background:linear-gradient(145deg,#315e91,#153557);color:#f5cf68;box-shadow:0 12px 24px #0005}
+.price-card.featured{border:1px solid #f5cf68;box-shadow:0 25px 60px #0007,0 0 0 1px #f5cf6830}
+.package-number{color:#f5cf68}.popular-tag{background:linear-gradient(145deg,#ffe89c,#d9ad48);color:#15243d}
+.price-card ul li{color:#c0cfe3}.price-card li svg{color:#f5cf68}
+.impact-grid h2{color:#f5f7ff}.impact-cards>div{background:linear-gradient(145deg,#153657,#0a1c33);border-color:#ffffff20}
+.impact-cards svg{color:#f5cf68}.impact-cards strong{color:#f2f6ff}.impact-cards span{color:#b4c6df}
+.quote-grid blockquote{background:linear-gradient(145deg,#173657,#0b1c34);border-color:#ffffff20}
+.quote-mark{color:#f5cf68}.quote-grid p{color:#f0f5ff}.quote-grid footer{color:#b7c8df}
+.founder-photo-frame{background:linear-gradient(145deg,#f5cf68,#2e6ba8,#0a1b33);box-shadow:0 35px 75px #0008;transform:perspective(1100px) rotateY(5deg) rotateX(1deg)}
+.founder-photo-frame img{box-shadow:inset 0 0 0 1px #fff}
+.founder-caption{background:rgba(3,13,28,.88);border:1px solid #ffffff30;box-shadow:0 12px 30px #0006}
+.founder-copy h2{color:#f4f7ff}
+.contact-info>a{background:linear-gradient(145deg,#17385d,#0b1e37);border-color:#ffffff24;box-shadow:0 12px 25px #0003}
+.contact-info>a>span{background:#254b75;color:#f5cf68}
+.contact-action{background:linear-gradient(145deg,#f8fbff,#dce9f8);color:#132947;border:1px solid #ffffff90;box-shadow:0 35px 85px #0008,inset 0 1px #fff;transform:perspective(1100px) rotateY(-4deg) rotateX(2deg)}
+.contact-action h3{color:#102b4d}.contact-action p{color:#516783}
+.contact-action-icon{background:linear-gradient(145deg,#dbeaff,#b6d1f3);color:#174b85;box-shadow:0 10px 20px #193a6024}
+.site-footer{background:linear-gradient(180deg,#030b18,#020711);border-top:1px solid #ffffff1c}
+.footer-brand{color:#f4f7ff}.footer-brand small{color:#f5cf68}
+.footer-main>p{color:#aabbd3}.footer-links a{color:#cbd9ec}.footer-bottom{border-color:#ffffff1a;color:#8fa5c2}
+.floating-whatsapp{background:linear-gradient(145deg,#32d879,#0b9e56);box-shadow:0 12px 35px #0008,0 0 0 7px #29ca761c;border:2px solid #d6ffea}
+.syllabus-modal{background:linear-gradient(145deg,#102746,#07172d);border:1px solid #ffffff25;color:#eaf2ff;box-shadow:0 35px 100px #000b}
+.syllabus-modal h2,.syllabus-modal h3,.modal-bottom>strong{color:#f4f7ff}
+.syllabus-modal>p,.syllabus-modal li{color:#bdcce1}
+.modal-close{background:#18395f;color:#fff;border-color:#ffffff25}
+.modal-bottom{border-color:#ffffff25}
+.modal-note{color:#9fb2cc}
+.dark-mode{--ink:#edf3ff;--muted:#a8b8d1;--paper:#0b1b34;--soft:#102746;--border:rgba(159,190,235,.2);--navy:#edf3ff;--blue:#70a9ff;background:#030b19;color:#edf3ff}
+.dark-mode .site-nav{background:rgba(4,14,30,.84)}
+.dark-mode .about-section,.dark-mode .why-section,.dark-mode .impact-section,.dark-mode .founder-section,.dark-mode .courses-section,.dark-mode .testimonials-section,.dark-mode .freelancing-section,.dark-mode .developers-section{background:linear-gradient(145deg,#091a32,#0b203c)}
+.dark-mode .course-card,.dark-mode .benefit-card,.dark-mode .price-card,.dark-mode .quote-grid blockquote,.dark-mode .freelance-panel,.dark-mode .contact-action{border-color:#ffffff24}
+.dark-mode .course-card h3,.dark-mode .benefit-card h3,.dark-mode .price-card h3,.dark-mode .quote-grid p,.dark-mode .impact-cards strong{color:#f2f6ff}
+.dark-mode .course-duration{background:#1b3a60;color:#f2d783}
+.dark-mode .course-enquire{background:#173b63;color:#d9eaff}
+.dark-mode .filter-btn{background:#142d4c;color:#dbe7f8}
+.dark-mode .filter-btn.active{background:linear-gradient(145deg,#f4d77f,#d6a93f);color:#14223a}
+.dark-mode .contact-action{background:linear-gradient(145deg,#f8fbff,#dce9f8)}
+.dark-mode .contact-action h3{color:#102b4d}
+@media(max-width:850px){
+ .site-container{width:min(100% - 38px,720px)}
+ .hero{min-height:0}.hero-grid{gap:24px}
+ .hero-visual{min-height:390px}
+ .about-panel,.crt-panel,.dev-intro-card,.founder-photo-frame,.contact-action{transform:none}
+ .nav-links{background:#07172f;border-color:#ffffff20}
+ .nav-links>a:not(.btn){color:#e8f0fc}
+ .nav-links .theme-toggle{background:#102746;color:#eaf2ff}
+}
+@media(max-width:560px){
+ .site-container{width:calc(100% - 32px)}
+ .section{padding:66px 0}
+ .hero{padding:62px 0 68px}
+ .hero-visual{min-height:320px}
+ .orbit-card{width:min(300px,86%)}
+ .visual-word{font-size:.52rem}
+ .floating-note{right:0;bottom:-8px}
+ .course-card,.benefit-card,.price-card,.quote-grid blockquote,.impact-cards>div{transform:none}
+ .course-card:hover,.benefit-card:hover,.price-card:hover,.quote-grid blockquote:hover,.impact-cards>div:hover{transform:translateY(-4px)}
+ .about-panel{transform:none}
+ .contact-action{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .orbit-card,.floating-note,.orbit-label{animation:none!important}
+ .course-card,.benefit-card,.price-card,.quote-grid blockquote,.impact-cards>div{transition:none!important}
+}
