@@ -94,3 +94,15 @@
 .dark-mode .portfolio-card{border-color:#314867}
 @media(max-width:760px){.portfolio-grid{grid-template-columns:1fr}.portfolio-card{min-height:175px}}
 @media(prefers-reduced-motion:reduce){.portfolio-card,.portfolio-card:before{transition:none}}
+
+/* Subtle 3D movement for the hero and interactive cards */
+@keyframes hero-orbit-float{0%,100%{transform:perspective(1000px) rotateY(-5deg) rotateX(2deg) translateY(0)}50%{transform:perspective(1000px) rotateY(5deg) rotateX(-2deg) translateY(-10px)}}
+@keyframes hero-note-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-9px) rotate(1deg)}}
+@keyframes orbit-label-float{0%,100%{translate:0 0}50%{translate:0 -6px}}
+.hero-visual .orbit-card{animation:hero-orbit-float 9s ease-in-out infinite;transform-style:preserve-3d}
+.hero-visual .floating-note{animation:hero-note-float 6s ease-in-out infinite}
+.hero-visual .orbit-label{animation:orbit-label-float 5s ease-in-out infinite}
+.hero-visual .label-two{animation-delay:-1.5s}.hero-visual .label-three{animation-delay:-3s}
+.course-card,.benefit-card,.price-card{transform-style:preserve-3d;backface-visibility:hidden}
+.course-card:hover,.benefit-card:hover,.price-card:hover{transform:perspective(900px) translateY(-6px) rotateX(1.2deg)}
+@media(prefers-reduced-motion:reduce){.hero-visual .orbit-card,.hero-visual .floating-note,.hero-visual .orbit-label{animation:none}}
