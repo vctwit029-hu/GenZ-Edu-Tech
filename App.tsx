@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   ArrowRight, BookOpen, BriefcaseBusiness, Check, ChevronDown, Code2,
   GraduationCap, Globe, Lightbulb, Mail, Menu, MessageCircle, Moon,
-  Phone, Rocket, Sparkles, Sun, Target, Users, X
+  Phone, Rocket, Sparkles, Sun, Target, Users, X, ExternalLink
 } from 'lucide-react';
 import companyLogo from './assets/genz-logo.png';
 import founderPhoto from './assets/founder-megadharshini.png';
@@ -60,6 +60,12 @@ const packages = [
   { name: 'E-commerce Website', price: 'From ₹39,999', description: 'For businesses selling products online.', features: ['Product catalogue', 'Shopping cart and checkout', 'Payment gateway integration', 'Order management setup', 'Responsive storefront', 'Testing and deployment'] },
   { name: 'Custom Web Application', price: 'From ₹59,999', description: 'For custom portals, dashboards and workflows.', features: ['Custom frontend and backend', 'Database and authentication if required', 'Admin dashboard', 'Business-specific workflows', 'Integration testing', 'Deployment planning'] },
   { name: 'Website Maintenance', price: 'From ₹1,499/mo', description: 'Keep your existing website updated and maintained.', features: ['Routine content updates', 'Basic technical checks', 'Small design adjustments', 'Link and form checks', 'Support based on agreed scope'] },
+];
+
+const portfolioProjects = [
+  { name: 'Little Artisan Bloom Bakes', url: 'https://little-artisan-bloom-bakes.base44.app' },
+  { name: 'APKS Organics', url: 'https://apks-organics.netlify.app' },
+  { name: 'Smart Tally Path', url: 'https://smart-tally-path.base44.app' }
 ];
 
 const filters = ['All', 'Digital Skills', 'Programming', 'Career Skills', 'Placement Preparation', 'Languages'];
@@ -235,7 +241,7 @@ export default function App() {
                 <h3>{course.name}</h3>
                 <p>{course.description}</p>
                 <div className="course-bottom">
-                  <div><small>Course fee</small><strong>₹{course.fee.toLocaleString('en-IN')}{course.feeUnit ?? ''}</strong></div>
+                  <div><small>{course.feeUnit ? 'Hourly fee' : 'Course fee'}</small><strong>₹{course.fee.toLocaleString('en-IN')}{course.feeUnit ?? ''}</strong></div>
                   <button className="syllabus-btn" onClick={() => setActiveCourse(course)}>
                     Explore Syllabus <ArrowRight size={15} />
                   </button>
@@ -386,6 +392,24 @@ export default function App() {
             </div>
           </div>
 
+          <div className="portfolio-showcase">
+            <div className="portfolio-heading">
+              <span className="eyebrow">SELECTED DIGITAL WORK</span>
+              <h3>Ideas brought to life on the web.</h3>
+              <p>Explore a few live projects from the GenZ Developers portfolio.</p>
+            </div>
+            <div className="portfolio-grid">
+              {portfolioProjects.map((project, index) => (
+                <a className="portfolio-card" href={project.url} target="_blank" rel="noreferrer" key={project.name}>
+                  <span className="portfolio-index">0{index + 1}</span>
+                  <span className="portfolio-card-icon"><Code2 size={25} /></span>
+                  <strong>{project.name}</strong>
+                  <span className="portfolio-link">View live project <ExternalLink size={15} /></span>
+                </a>
+              ))}
+            </div>
+          </div>
+
           <div className="package-grid">
             {packages.map((pkg, i) => (
               <article key={pkg.name} className={`price-card ${'featured' in pkg && pkg.featured ? 'featured' : ''}`}>
@@ -458,7 +482,7 @@ export default function App() {
             <img src={founderPhoto} alt="Megadharshini Kandhan, Founder of GenZ Edu Tech" />
             <div className="founder-caption">
               <strong>Megadharshini Kandhan</strong>
-              <span>Founder · GenZ Edu Tech</span>
+              <span>Founder &amp; Business Operations Lead · GenZ Edu Tech</span>
             </div>
           </div>
           <div className="founder-copy">
@@ -560,10 +584,10 @@ export default function App() {
           <h3>What you'll cover</h3>
           <ol>{activeCourse.syllabus.map(item => <li key={item}>{item}</li>)}</ol>
           <div className="modal-bottom">
-            <strong>Course fee: ₹{activeCourse.fee.toLocaleString('en-IN')}</strong>
+            <strong>{activeCourse.feeUnit ? 'Hourly fee' : 'Course fee'}: ₹{activeCourse.fee.toLocaleString('en-IN')}{activeCourse.feeUnit ?? ''}</strong>
             <a
               className="btn btn-primary"
-              href={whatsapp(`Hello GenZ Edu Tech, please share the current batch details for ${activeCourse.name} (fee ₹${activeCourse.fee.toLocaleString('en-IN')}).`)}
+              href={whatsapp(`Hello GenZ Edu Tech, please share the current batch details for ${activeCourse.name} (fee ₹${activeCourse.fee.toLocaleString('en-IN')}${activeCourse.feeUnit ?? ''}).`)}
               target="_blank"
               rel="noreferrer"
             >
