@@ -439,3 +439,48 @@ p{color:inherit}
 .dark-mode .text-link,
 .dark-mode .syllabus-btn { color: #9bc5ff; }
 .dark-mode .course-enquire { color: #d5e7ff; }
+
+
+/* Final contrast fix for the remaining light-background AI panels and cards. */
+.site:not(.dark-mode) .home-ai-section,
+.site:not(.dark-mode) .ai-hero,
+.site:not(.dark-mode) .ai-process {
+  color: #142b49;
+}
+.site:not(.dark-mode) .home-ai-section h1,
+.site:not(.dark-mode) .home-ai-section h2,
+.site:not(.dark-mode) .home-ai-section h3,
+.site:not(.dark-mode) .ai-hero h1,
+.site:not(.dark-mode) .ai-hero h2,
+.site:not(.dark-mode) .ai-hero h3,
+.site:not(.dark-mode) .ai-process h1,
+.site:not(.dark-mode) .ai-process h2,
+.site:not(.dark-mode) .ai-process h3,
+.site:not(.dark-mode) .ai-capabilities h2 {
+  color: #10243d;
+}
+.site:not(.dark-mode) .home-ai-copy>p,
+.site:not(.dark-mode) .ai-hero p,
+.site:not(.dark-mode) .ai-process-card p,
+.site:not(.dark-mode) .ai-capability-card p,
+.site:not(.dark-mode) .ai-fit-grid>div>p {
+  color: #354b63;
+}
+.site:not(.dark-mode) .home-ai-pill,
+.site:not(.dark-mode) .ai-orbit-chip {
+  background: #ffffff;
+  color: #10243d;
+}
+.site:not(.dark-mode) .ai-orbit-core {
+  background: #ffffff;
+  color: #174f91;
+}
+.site:not(.dark-mode) .ai-orbit-core strong { color: #10243d; }
+.site:not(.dark-mode) .ai-orbit-core small { color: #40536d; }
+.site:not(.dark-mode) .ai-process-card {
+  background: #ffffff;
+  color: #142b49;
+  border-color: #d2deed;
+}
+.site:not(.dark-mode) .ai-process-card h3,
+.site:not(.dark-mode) .ai-capability-card h3 { color: #10243d; }
