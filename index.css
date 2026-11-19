@@ -626,3 +626,80 @@ p{color:inherit}
 .assistant-panel .assistant-footer a {
   color: #80b6ff !important;
 }
+
+
+/* GenZ assistant accessibility and responsive controls refinement */
+.assistant-panel {
+  width: min(420px, calc(100vw - 28px));
+  color: #f7faff !important;
+  background: #0b1f3a !important;
+}
+.assistant-panel .assistant-header {
+  background: #102b4e !important;
+  color: #ffffff !important;
+}
+.assistant-panel .assistant-header strong,
+.assistant-panel .assistant-header small,
+.assistant-panel .assistant-close,
+.assistant-panel .assistant-message,
+.assistant-panel .assistant-footer,
+.assistant-panel .assistant-footer a,
+.assistant-panel .assistant-topics button,
+.assistant-panel .assistant-compose input,
+.assistant-panel .assistant-compose input::placeholder {
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+.assistant-panel .assistant-header strong { color: #ffffff !important; }
+.assistant-panel .assistant-header small { color: #dce9fb !important; }
+.assistant-panel .assistant-message.assistant {
+  background: #1b3b63 !important;
+  color: #ffffff !important;
+}
+.assistant-panel .assistant-message.user {
+  background: #245da8 !important;
+  color: #ffffff !important;
+}
+.assistant-panel .assistant-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  overflow: hidden;
+  max-width: 100%;
+  scrollbar-width: none;
+}
+.assistant-panel .assistant-topics::-webkit-scrollbar { display: none; }
+.assistant-panel .assistant-topics button {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  background: #19385f !important;
+  border-color: #55749a !important;
+  color: #ffffff !important;
+  line-height: 1.35;
+}
+.assistant-panel .assistant-compose {
+  background: #0b1f3a !important;
+}
+.assistant-panel .assistant-compose input {
+  background: #102b4e !important;
+  border-color: #6683a8 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+.assistant-panel .assistant-compose input::placeholder {
+  color: #cbd8eb !important;
+  -webkit-text-fill-color: #cbd8eb !important;
+}
+.assistant-panel .assistant-footer { color: #d0def1 !important; }
+.assistant-panel .assistant-footer a { color: #91c2ff !important; }
+.assistant-panel .assistant-compose button { color: #ffffff !important; }
+.assistant-panel .assistant-compose .assistant-mic {
+  background: #1b3b63 !important;
+  color: #ffffff !important;
+}
+@media(max-width:520px) {
+  .assistant-panel { width: calc(100vw - 24px); }
+  .assistant-panel .assistant-topics { gap: 6px; padding: 10px; }
+  .assistant-panel .assistant-topics button { font-size: .7rem; padding: 7px 9px; }
+}
