@@ -8,8 +8,9 @@ export default async function handler(req: any, res: any) {
 
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
+    console.error("GenZ assistant configuration error: OPENAI_API_KEY is missing from the Vercel runtime environment.");
     return res.status(503).json({
-      error: "The AI assistant is not connected yet. Please contact GenZ Edu Tech on WhatsApp for help."
+      error: "The AI service is not configured yet. The GenZ Edu Tech team needs to check its server settings."
     });
   }
 
@@ -104,9 +105,24 @@ If asked something not covered here, say you don't want to guess and offer to co
       return res.status(502).json({ error: visitorMessage, requestId });
     }
 
-    const answer = typeof data.output_text === "string" ? data.output_text.trim() : "";
+    // The raw REST Responses API returns text inside output[].content[].
+    // output_text is an SDK convenience property and is not guaranteed in raw HTTP JSON.
+    const answerFromOutput = Array.isArray(data.output)
+      ? data.output
+          .filter((item: any) => item?.type === "message" || item?.role === "assistant")
+          .flatMap((item: any) => Array.isArray(item.content) ? item.content : [])
+          .filter((part: any) => part?.type === "output_text" && typeof part.text === "string")
+          .map((part: any) => part.text)
+          .join("\n")
+      : "";
+    const answer = (typeof data.output_text === "string" ? data.output_text : answerFromOutput).trim();
     if (!answer) {
-      return res.status(502).json({ error: "I couldn't prepare an answer. Please try again." });
+      console.error("OpenAI assistant returned no text output:", JSON.stringify({
+        responseId: data?.id,
+        status: data?.status,
+        outputTypes: Array.isArray(data?.output) ? data.output.map((item: any) => item?.type) : []
+      }));
+      return res.status(502).json({ error: "The AI service returned an empty answer. Please try again." });
     }
     return res.status(200).json({ answer });
   } catch (error) {
