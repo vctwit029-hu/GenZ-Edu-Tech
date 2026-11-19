@@ -836,7 +836,7 @@ export default function App() {
             <button type="button" className="assistant-mic" onClick={startAssistantVoiceInput} aria-label="Speak your question"><Mic size={18} /></button>
             <button type="submit" disabled={!assistantInput.trim() || assistantBusy} aria-label="Send message"><Send size={18} /></button>
           </form>
-          <div className="assistant-footer"><span>Say “wait” to pause the tour and ask a question.</span><a href={whatsapp('Hello GenZ Edu Tech, I need help with your courses or services.')} target="_blank" rel="noreferrer">Talk to our team</a></div>
+          <div className="assistant-footer"><span>Say “wait” to pause the tour and ask a question.</span><a href={whatsapp(`Hello GenZ Edu Tech, I would like to make an enquiry.\\n\\n${assistantMessages.filter(message => message.role === 'user').slice(-6).map(message => `My question: ${message.content}`).join('\\n')}`)} target="_blank" rel="noreferrer">Send enquiry on WhatsApp</a></div>
         </section>
       )}
       <button className="assistant-launcher" onClick={() => setAssistantOpen(open => !open)} aria-label={assistantOpen ? 'Close AI assistant' : 'Open AI assistant'}>
