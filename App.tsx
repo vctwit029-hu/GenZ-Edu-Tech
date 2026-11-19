@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
   ArrowRight, BookOpen, BriefcaseBusiness, Check, ChevronDown, Code2,
-  GraduationCap, Globe, Lightbulb, Mail, Menu, MessageCircle, Moon,
+  GraduationCap, Globe, Lightbulb, Mail, Menu, MessageCircle, Moon, Bot, Mic, Send, Headphones,
   Phone, Rocket, Sparkles, Sun, Target, Users, X, ExternalLink, Volume2, Play, Pause, Square
 } from 'lucide-react';
 import companyLogo from './assets/genz-logo.png';
@@ -79,6 +79,13 @@ export default function App() {
   const [filter, setFilter] = useState('All');
   const [activeCourse, setActiveCourse] = useState<Course | null>(null);
   const [voiceStatus, setVoiceStatus] = useState<'idle' | 'speaking' | 'paused'>('idle');
+  const [assistantOpen, setAssistantOpen] = useState(false);
+  const [voicePrompt, setVoicePrompt] = useState(false);
+  const [assistantInput, setAssistantInput] = useState('');
+  const [assistantBusy, setAssistantBusy] = useState(false);
+  const [assistantMessages, setAssistantMessages] = useState<{ role: 'user' | 'assistant'; content: string }[]>([
+    { role: 'assistant', content: "Hello! Welcome to GenZ Edu Tech. I can guide you through our academy, courses, career training, language programmes and website services. What would you like to explore first?" }
+  ]);
   const [darkMode, setDarkMode] = useState(() => {
     try { return localStorage.getItem('genz-theme') === 'dark'; } catch { return false; }
   });
@@ -86,6 +93,73 @@ export default function App() {
   useEffect(() => {
     try { localStorage.setItem('genz-theme', darkMode ? 'dark' : 'light'); } catch {}
   }, [darkMode]);
+
+  // Ask once on the visitor's first visit. A "No" choice is remembered.
+  useEffect(() => {
+    try {
+      if (!localStorage.getItem('genz-voice-choice')) setVoicePrompt(true);
+    } catch { setVoicePrompt(true); }
+  }, []);
+
+  const chooseVoiceGuidance = (wantsGuidance: boolean) => {
+    try { localStorage.setItem('genz-voice-choice', wantsGuidance ? 'yes' : 'no'); } catch {}
+    setVoicePrompt(false);
+    if (wantsGuidance) setAssistantOpen(true);
+  };
+
+  const speakAssistantReply = (message: string) => {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(message);
+    utterance.lang = 'en-IN';
+    utterance.rate = 0.96;
+    window.speechSynthesis.speak(utterance);
+  };
+
+  const sendAssistantMessage = async (rawMessage?: string) => {
+    const message = (rawMessage ?? assistantInput).trim();
+    if (!message || assistantBusy) return;
+    const nextMessages = [...assistantMessages, { role: 'user' as const, content: message }];
+    setAssistantMessages(nextMessages);
+    setAssistantInput('');
+    setAssistantBusy(true);
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: nextMessages.slice(-12) })
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'The assistant is temporarily unavailable.');
+      const answer = String(data.answer || '').trim();
+      if (!answer) throw new Error('I could not prepare an answer. Please try again.');
+      setAssistantMessages(current => [...current, { role: 'assistant', content: answer }]);
+      speakAssistantReply(answer);
+    } catch (error) {
+      const messageText = error instanceof Error ? error.message : 'Something went wrong. Please try again.';
+      setAssistantMessages(current => [...current, { role: 'assistant', content: messageText }]);
+    } finally {
+      setAssistantBusy(false);
+    }
+  };
+
+  const startAssistantVoiceInput = () => {
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      setAssistantMessages(current => [...current, { role: 'assistant', content: 'Voice input is not available in this browser. You can type your question here instead.' }]);
+      return;
+    }
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'en-IN';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+    recognition.onresult = (event: any) => {
+      const transcript = event.results?.[0]?.[0]?.transcript;
+      if (transcript) sendAssistantMessage(transcript);
+    };
+    recognition.onerror = () => setAssistantMessages(current => [...current, { role: 'assistant', content: 'I could not hear that clearly. Please try again or type your question.' }]);
+    recognition.start();
+  };
 
   const voiceGuideText = useMemo(() => {
     const courseDetails = courses.map((course) =>
@@ -244,26 +318,7 @@ export default function App() {
       </div>
     </header>
 
-    <section className="voice-guide" aria-label="Listen to the GenZ Edu Tech introduction">
-      <div className="site-container voice-guide-inner">
-        <div className="voice-guide-copy">
-          <span className="voice-guide-icon"><Volume2 size={20} /></span>
-          <span><strong>Meet GenZ Edu Tech</strong><small>Listen to our academy, courses and services</small></span>
-        </div>
-        <div className="voice-guide-controls">
-          {voiceStatus === 'paused' ? (
-            <button className="voice-control voice-play" onClick={resumeVoiceGuide} aria-label="Resume voice introduction"><Play size={16} /> Resume</button>
-          ) : (
-            <button className="voice-control voice-play" onClick={playVoiceGuide} aria-label={voiceStatus === 'speaking' ? 'Restart voice introduction' : 'Play voice introduction'}>
-              <Play size={16} /> {voiceStatus === 'speaking' ? 'Restart' : 'Listen'}
-            </button>
-          )}
-          {voiceStatus === 'speaking' && <button className="voice-control" onClick={pauseVoiceGuide} aria-label="Pause voice introduction"><Pause size={16} /> Pause</button>}
-          {voiceStatus !== 'idle' && <button className="voice-control voice-stop" onClick={stopVoiceGuide} aria-label="Stop voice introduction"><Square size={14} /> Stop</button>}
-          <span className="voice-status" aria-live="polite">{voiceStatus === 'speaking' ? 'Playing' : voiceStatus === 'paused' ? 'Paused' : 'Optional audio guide'}</span>
-        </div>
-      </div>
-    </section>
+
 
     <main>
       <section className="hero" id="home">
@@ -730,5 +785,53 @@ export default function App() {
         </section>
       </div>
     )}
+
+    {voicePrompt && (
+      <div className="assistant-consent-backdrop" role="presentation">
+        <section className="assistant-consent" role="dialog" aria-modal="true" aria-labelledby="assistant-consent-title">
+          <span className="assistant-avatar"><Bot size={27} /></span>
+          <span className="eyebrow">WELCOME TO GENZ EDU TECH</span>
+          <h2 id="assistant-consent-title">Would you like a voice-guided tour?</h2>
+          <p>I can introduce our academy and services, help you explore what interests you, and answer your questions in simple language.</p>
+          <div className="assistant-consent-actions">
+            <button className="btn btn-primary" onClick={() => chooseVoiceGuidance(true)}><Headphones size={17} /> Yes, guide me</button>
+            <button className="btn btn-secondary" onClick={() => chooseVoiceGuidance(false)}>No, I'll explore myself</button>
+          </div>
+          <small>You can open the assistant any time using the chat button.</small>
+        </section>
+      </div>
+    )}
+
+    <div className="site-assistant">
+      {assistantOpen && (
+        <section className="assistant-panel" aria-label="GenZ Edu Tech AI assistant">
+          <header className="assistant-header">
+            <span className="assistant-avatar"><Bot size={23} /></span>
+            <span><strong>GenZ AI Assistant</strong><small>Ask about courses and services</small></span>
+            <button className="assistant-close" onClick={() => { setAssistantOpen(false); if ('speechSynthesis' in window) window.speechSynthesis.cancel(); }} aria-label="Close assistant"><X size={19} /></button>
+          </header>
+          <div className="assistant-topics">
+            {['Explore courses', 'Career training', 'Language learning', 'Website services'].map(topic =>
+              <button key={topic} onClick={() => sendAssistantMessage(`I would like to explore ${topic.toLowerCase()}.`)}>{topic}</button>
+            )}
+          </div>
+          <div className="assistant-messages" aria-live="polite">
+            {assistantMessages.map((message, index) => (
+              <div key={index} className={`assistant-message ${message.role}`}>{message.content}</div>
+            ))}
+            {assistantBusy && <div className="assistant-message assistant">One moment, I'm checking that for you…</div>}
+          </div>
+          <form className="assistant-compose" onSubmit={event => { event.preventDefault(); sendAssistantMessage(); }}>
+            <input value={assistantInput} onChange={event => setAssistantInput(event.target.value)} placeholder="Ask me anything…" aria-label="Ask the GenZ assistant" maxLength={1200} />
+            <button type="button" className="assistant-mic" onClick={startAssistantVoiceInput} aria-label="Speak your question"><Mic size={18} /></button>
+            <button type="submit" disabled={!assistantInput.trim() || assistantBusy} aria-label="Send message"><Send size={18} /></button>
+          </form>
+          <div className="assistant-footer"><span>Say “wait” to pause the tour and ask a question.</span><a href={whatsapp('Hello GenZ Edu Tech, I need help with your courses or services.')} target="_blank" rel="noreferrer">Talk to our team</a></div>
+        </section>
+      )}
+      <button className="assistant-launcher" onClick={() => setAssistantOpen(open => !open)} aria-label={assistantOpen ? 'Close AI assistant' : 'Open AI assistant'}>
+        {assistantOpen ? <X size={23} /> : <><Bot size={23} /><span>Ask GenZ AI</span></>}
+      </button>
+    </div>
   </div>;
 }
