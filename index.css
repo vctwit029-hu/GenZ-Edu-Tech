@@ -589,3 +589,40 @@ p{color:inherit}
 .assistant-footer a{color:var(--blue);font-weight:800;white-space:nowrap}
 @keyframes assistant-pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 @media(max-width:520px){.site-assistant{right:12px;bottom:12px}.assistant-panel{height:min(610px,calc(100vh - 88px))}.assistant-consent{padding:26px 21px}}
+
+
+/* GenZ AI assistant: enforce high-contrast text in the dark chat panel */
+.assistant-panel,
+.assistant-panel .assistant-messages,
+.assistant-panel .assistant-compose {
+  color: #f4f7ff !important;
+}
+.assistant-panel .assistant-message.assistant {
+  background: #19385f !important;
+  color: #f4f7ff !important;
+}
+.assistant-panel .assistant-message.user {
+  background: #2459a6 !important;
+  color: #ffffff !important;
+}
+.assistant-panel .assistant-topics button {
+  background: #18365c !important;
+  border-color: #45658e !important;
+  color: #f3f7ff !important;
+}
+.assistant-panel .assistant-compose input {
+  background: #0d2341 !important;
+  border-color: #45658e !important;
+  color: #ffffff !important;
+  caret-color: #ffffff;
+}
+.assistant-panel .assistant-compose input::placeholder {
+  color: #c1cde0 !important;
+  opacity: 1;
+}
+.assistant-panel .assistant-footer {
+  color: #c1cde0 !important;
+}
+.assistant-panel .assistant-footer a {
+  color: #80b6ff !important;
+}
