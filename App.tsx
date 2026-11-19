@@ -548,7 +548,7 @@ export default function App() {
                 <span><MessageCircle /></span>
                 <div><small>WhatsApp / Phone</small><strong>+91 63692 16076</strong></div>
               </a>
-              <a href={`mailto:${EMAIL}`}>
+              <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(EMAIL)}`} target="_blank" rel="noreferrer">
                 <span><Mail /></span>
                 <div><small>Email</small><strong>{EMAIL}</strong></div>
               </a>
@@ -570,7 +570,7 @@ export default function App() {
             <a className="btn btn-primary full-btn" href={whatsapp('Hello GenZ Edu Tech! I would like to know more about your courses and services.')}>
               Message GenZ Edu Tech <ArrowRight size={17} />
             </a>
-            <a className="btn btn-secondary full-btn" href={`mailto:${EMAIL}?subject=${encodeURIComponent('Enquiry for GenZ Edu Tech')}`}>
+            <a className="btn btn-secondary full-btn" href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(EMAIL)}&su=${encodeURIComponent('Enquiry for GenZ Edu Tech')}`} target="_blank" rel="noreferrer">
               Send an Email <Mail size={17} />
             </a>
             <small>We look forward to hearing from you.</small>
