@@ -95,10 +95,12 @@ export default function App() {
 
     const selectors = [
       '.section-heading', '.about-grid > *', '.trust-grid > div',
-      '.course-card', '.crt-grid > *', '.benefit-card', '.freelance-panel',
-      '.developer-intro > *', '.portfolio-card', '.price-card',
-      '.impact-grid > *', '.quote-grid blockquote', '.founder-grid > *',
-      '.contact-grid > *'
+      '.course-card', '.crt-grid > *', '.crt-item', '.benefit-card', '.freelance-panel',
+      '.developer-intro > *', '.portfolio-heading', '.portfolio-card', '.price-card',
+      '.package-note', '.impact-grid > *', '.impact-cards > *',
+      '.quote-grid blockquote', '.founder-grid > *', '.founder-caption',
+      '.contact-grid > *', '.contact-info > a', '.check-list > span',
+      '.hero-actions > *', '.hero-points > *', '.footer-main > *', '.footer-bottom'
     ];
     const elements = document.querySelectorAll<HTMLElement>(selectors.join(','));
     elements.forEach((element) => {
