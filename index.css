@@ -583,3 +583,72 @@ a:focus-visible,button:focus-visible{transition:outline-offset .2s ease}
 .site input,.site textarea,.site select{transition:border-color .25s ease,box-shadow .25s ease,background .25s ease}
 .site input:focus,.site textarea:focus,.site select:focus{box-shadow:0 0 0 4px color-mix(in srgb,var(--blue) 18%,transparent)}
 .site .course-card,.site .price-card,.site .portfolio-card,.site .benefit-card{backface-visibility:hidden}
+
+
+/* GENZ MOTION EXPERIENCE — consistent entrance, hover and navigation feedback */
+@keyframes genz-card-enter {
+  0% { opacity: 0; transform: translate3d(0, 26px, 0) scale(.965); }
+  70% { opacity: 1; transform: translate3d(0, -3px, 0) scale(1.008); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes genz-icon-float {
+  0%,100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-5px) rotate(-4deg); }
+}
+@keyframes genz-line-sweep {
+  from { transform: scaleX(0); transform-origin: left; }
+  to { transform: scaleX(1); transform-origin: left; }
+}
+@keyframes genz-soft-pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(245,207,104,0); }
+  50% { box-shadow: 0 0 0 7px rgba(245,207,104,.10); }
+}
+@keyframes genz-footer-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.course-card { animation: genz-card-enter .65s cubic-bezier(.2,.75,.25,1) both; }
+.course-grid .course-card:nth-child(3n + 2) { animation-delay: 70ms; }
+.course-grid .course-card:nth-child(3n) { animation-delay: 140ms; }
+.portfolio-card,.price-card,.benefit-card,.quote-grid blockquote {
+  transition: transform .42s cubic-bezier(.2,.8,.2,1), box-shadow .42s ease, border-color .32s ease, filter .32s ease;
+}
+@media (hover:hover) and (pointer:fine) {
+  .course-card:hover,.price-card:hover,.benefit-card:hover,.quote-grid blockquote:hover {
+    transform: perspective(1100px) translateY(-10px) rotateX(2deg) scale(1.012);
+    filter: saturate(1.08);
+  }
+  .course-icon,.benefit-icon,.dev-symbol,.contact-action-icon {
+    transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
+  }
+  .course-card:hover .course-icon,.benefit-card:hover .benefit-icon,
+  .dev-intro-card:hover .dev-symbol,.contact-action:hover .contact-action-icon {
+    transform: translateY(-5px) rotate(-7deg) scale(1.07);
+    box-shadow: 0 12px 25px rgba(23,105,232,.18);
+  }
+  .portfolio-card:hover .portfolio-card-icon { animation: genz-icon-float 1.5s ease-in-out infinite; }
+  .contact-info>a:hover { transform: translateY(-4px); border-color: rgba(245,207,104,.65); }
+  .footer-links a:hover { transform: translateY(-3px); }
+}
+.nav-links>a:not(.btn)::after { transform: scaleX(0); transform-origin: left; transition: transform .28s ease; }
+.nav-links>a:not(.btn):hover::after { transform: scaleX(1); }
+.filter-btn { position: relative; overflow: hidden; }
+.filter-btn::after {
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.22),transparent 80%);
+  transform:translateX(-130%); transition:transform .55s ease;
+}
+.filter-btn:hover::after { transform:translateX(130%); }
+.syllabus-btn svg,.text-link svg,.portfolio-link svg { transition:transform .28s ease; }
+.syllabus-btn:hover svg,.text-link:hover svg,.portfolio-card:hover .portfolio-link svg { transform:translateX(5px); }
+.modal-backdrop { animation:genz-backdrop-in .25s ease both; }
+@keyframes genz-backdrop-in { from{opacity:0} to{opacity:1} }
+.syllabus-modal { transform-origin:center; }
+.floating-whatsapp { animation:genz-soft-pulse 3.2s ease-in-out infinite; }
+.footer-main>* { animation:genz-footer-rise .7s both; }
+.footer-main>*:nth-child(2) { animation-delay:100ms; }
+.footer-main>*:nth-child(3) { animation-delay:180ms; }
+@media (prefers-reduced-motion:reduce) {
+  .course-card,.footer-main>* { animation:none!important; }
+  .floating-whatsapp { animation:none!important; }
+}
