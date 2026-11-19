@@ -86,6 +86,42 @@ export default function App() {
     try { localStorage.setItem('genz-theme', darkMode ? 'dark' : 'light'); } catch {}
   }, [darkMode]);
 
+  // Reveal key content as it enters the viewport. Motion is disabled for
+  // visitors who request reduced motion, and elements remain visible if the
+  // browser does not support IntersectionObserver.
+  useEffect(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+    const selectors = [
+      '.section-heading', '.about-grid > *', '.trust-grid > div',
+      '.course-card', '.crt-grid > *', '.benefit-card', '.freelance-panel',
+      '.developer-intro > *', '.portfolio-card', '.price-card',
+      '.impact-grid > *', '.quote-grid blockquote', '.founder-grid > *',
+      '.contact-grid > *'
+    ];
+    const elements = document.querySelectorAll<HTMLElement>(selectors.join(','));
+    elements.forEach((element) => {
+      element.classList.add('reveal-on-scroll');
+      const siblings = element.parentElement
+        ? Array.from(element.parentElement.children).filter((child) => child.classList.contains('reveal-on-scroll'))
+        : [];
+      element.style.setProperty('--reveal-delay', `${Math.min(siblings.indexOf(element), 4) * 75}ms`);
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -45px 0px' });
+
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, []);
+
   const shownCourses = useMemo(
     () => filter === 'All' ? courses : courses.filter(c => c.category === filter),
     [filter]
