@@ -96,7 +96,7 @@ export default function App() {
     const selectors = [
       '.section-heading', '.about-grid > *', '.trust-grid > div',
       '.course-card', '.crt-grid > *', '.crt-item', '.benefit-card', '.freelance-panel',
-      '.developer-intro > *', '.portfolio-heading', '.portfolio-card', '.price-card',
+      '.developer-intro > *', '.portfolio-heading', '.portfolio-card', '.price-card', '.developer-stat', '.developer-stats-note',
       '.package-note', '.impact-grid > *', '.impact-cards > *',
       '.quote-grid blockquote', '.founder-grid > *', '.founder-caption',
       '.contact-grid > *', '.contact-info > a', '.check-list > span',
@@ -482,6 +482,18 @@ export default function App() {
             ))}
           </div>
           <p className="package-note">Final pricing depends on project scope, content, integrations, hosting and third-party services. Any ongoing subscription or paid service will be discussed before work begins.</p>
+
+          <div className="developer-stats" aria-label="GenZ Developers project statistics">
+            <div className="developer-stat">
+              <span className="developer-stat-number">70+</span>
+              <span className="developer-stat-label">Projects completed</span>
+            </div>
+            <div className="developer-stat">
+              <span className="developer-stat-number">03</span>
+              <span className="developer-stat-label">Live sample projects showcased</span>
+            </div>
+            <p className="developer-stats-note">A small selection of our work is featured in the portfolio above.</p>
+          </div>
         </div>
       </section>
 
