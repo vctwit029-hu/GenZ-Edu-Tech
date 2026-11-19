@@ -484,3 +484,71 @@ p{color:inherit}
 }
 .site:not(.dark-mode) .ai-process-card h3,
 .site:not(.dark-mode) .ai-capability-card h3 { color: #10243d; }
+
+
+/* Optional spoken website guide */
+.voice-guide {
+  position: relative;
+  z-index: 5;
+  padding: 18px 0;
+  background: linear-gradient(110deg,#fff8df,#edf4ff 55%,#e4efff);
+  border-block: 1px solid #d8e4f4;
+}
+.voice-guide-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+}
+.voice-guide-copy,.voice-guide-controls {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.voice-guide-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 14px;
+  background: #102d59;
+  color: #ffdc78;
+}
+.voice-guide-copy strong,.voice-guide-copy small { display:block; }
+.voice-guide-copy strong { color:#10243d; font:800 1rem Manrope,sans-serif; }
+.voice-guide-copy small { color:#40536d; margin-top:3px; font-size:.84rem; }
+.voice-guide-controls { flex-wrap:wrap; justify-content:flex-end; }
+.voice-control {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-height:40px;
+  padding:9px 15px;
+  border:1px solid #c8d7eb;
+  border-radius:999px;
+  background:#fff;
+  color:#142b49;
+  font:800 .82rem Manrope,sans-serif;
+  cursor:pointer;
+  transition:transform .2s ease,background .2s ease,box-shadow .2s ease;
+}
+.voice-control:hover { transform:translateY(-2px); box-shadow:0 8px 20px #102d591c; }
+.voice-control.voice-play { background:#102d59; border-color:#102d59; color:#fff; }
+.voice-control.voice-stop { background:#fff; color:#8a2633; border-color:#e7cbd0; }
+.voice-status { color:#40536d; font-size:.78rem; font-weight:700; }
+.dark-mode .voice-guide { background:linear-gradient(110deg,#102746,#0b1b34 55%,#102746); border-color:#2a3e5c; }
+.dark-mode .voice-guide-copy strong { color:#f2f6ff; }
+.dark-mode .voice-guide-copy small,.dark-mode .voice-status { color:#c4d2e5; }
+.dark-mode .voice-control { background:#142844; border-color:#385171; color:#edf3ff; }
+.dark-mode .voice-control.voice-play { background:linear-gradient(145deg,#ffe69a,#e7b83f); border-color:#e7b83f; color:#13233c; }
+.dark-mode .voice-control.voice-stop { color:#ffd1d5; }
+@media(max-width:650px) {
+  .voice-guide-inner { align-items:flex-start; flex-direction:column; }
+  .voice-guide-controls { justify-content:flex-start; width:100%; }
+  .voice-status { width:100%; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .voice-control { transition:none; }
+}
