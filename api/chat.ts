@@ -56,7 +56,7 @@ If asked something not covered here, say you don't want to guess and offer to co
         Authorization: `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: "gpt-6-luna",
+        model: process.env.OPENAI_MODEL || "gpt-4.1-mini",
         instructions,
         input: safeMessages,
         max_output_tokens: 350
