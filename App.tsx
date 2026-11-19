@@ -136,8 +136,8 @@ export default function App() {
       if (!response.ok) throw new Error(data.error || 'The assistant is temporarily unavailable.');
       const rawAnswer = String(data.answer || '').trim();
       if (!rawAnswer) throw new Error('I could not prepare an answer. Please try again.');
-      const tourMatch = rawAnswer.match(/\\[TOUR:(home|about|courses|tamil-learning|crt|why-us|developers|testimonials|founder|contact)\\]/i);
-      const answer = rawAnswer.replace(/\\[TOUR:(?:home|about|courses|tamil-learning|crt|why-us|developers|testimonials|founder|contact)\\]/ig, '').trim();
+      const tourMatch = rawAnswer.match(/\[TOUR:(home|about|courses|tamil-learning|crt|why-us|developers|testimonials|founder|contact)\]/i);
+      const answer = rawAnswer.replace(/\[TOUR:(?:home|about|courses|tamil-learning|crt|why-us|developers|testimonials|founder|contact)\]/ig, '').trim();
       setAssistantMessages(current => [...current, { role: 'assistant', content: answer }]);
       if (tourMatch?.[1]) {
         const section = document.getElementById(tourMatch[1].toLowerCase());
