@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   ArrowRight, BookOpen, BriefcaseBusiness, Check, ChevronDown, Code2,
   GraduationCap, Globe, Lightbulb, Mail, Menu, MessageCircle, Moon,
-  Phone, Rocket, Sparkles, Sun, Target, Users, X, ExternalLink
+  Phone, Rocket, Sparkles, Sun, Target, Users, X, ExternalLink, Volume2, Play, Pause, Square
 } from 'lucide-react';
 import companyLogo from './assets/genz-logo.png';
 import founderPhoto from './assets/founder-megadharshini.png';
@@ -78,6 +78,7 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [filter, setFilter] = useState('All');
   const [activeCourse, setActiveCourse] = useState<Course | null>(null);
+  const [voiceStatus, setVoiceStatus] = useState<'idle' | 'speaking' | 'paused'>('idle');
   const [darkMode, setDarkMode] = useState(() => {
     try { return localStorage.getItem('genz-theme') === 'dark'; } catch { return false; }
   });
@@ -85,6 +86,74 @@ export default function App() {
   useEffect(() => {
     try { localStorage.setItem('genz-theme', darkMode ? 'dark' : 'light'); } catch {}
   }, [darkMode]);
+
+  const voiceGuideText = useMemo(() => {
+    const courseDetails = courses.map((course) =>
+      `${course.name}, ${course.duration}, fee ${course.fee.toLocaleString('en-IN')} rupees${course.feeUnit || ''}`
+    ).join('. ');
+    const serviceDetails = packages.map((item) =>
+      `${item.name}, ${item.price}. ${item.description} ${item.features.join('. ')}`
+    ).join('. ');
+    return `Welcome to GenZ Edu Tech. Learn, build and grow. We are an education and digital solutions company focused on practical learning, career guidance, freelancing awareness and website development.
+
+    At GenZ Academy, we offer practical courses for beginners, students, job seekers and people who want to build new skills. Our programming courses include Python, Java, JavaScript, C, C plus plus, HTML and CSS, frontend development, backend development, full stack development, SQL and databases, Git and GitHub, API development, software testing and data structures and algorithms.
+
+    Our digital skills courses include digital marketing, social media marketing, content writing, learning artificial intelligence, generative AI, machine learning and data analytics with Python. Career and placement preparation includes freelancing and client acquisition, quantitative aptitude, verbal ability, placement training and career awareness.
+
+    Our current course catalogue and published fees are as follows. ${courseDetails}. Fees and course details should be confirmed with our team before enrolment.
+
+    We also offer foreign language learning in German, French, Japanese, Korean and Spanish. These programmes are planned over six months, at seven hundred and fifty rupees per hour. We offer a separate personalised online Tamil learning programme. Its duration is flexible and fee details are shared when you enquire.
+
+    Our Career Readiness Training, also called C R T, helps learners prepare for the workplace through aptitude, verbal and reasoning practice, resume preparation, interview practice, communication and job readiness guidance. Ask our team about the current batch and programme details.
+
+    Through GenZ Freelance learning, we help learners understand how to choose a service, build a portfolio, find potential clients, prepare proposals, communicate professionally and manage client work.
+
+    Through GenZ Developers, we build websites and digital products for businesses. Our packages are: ${serviceDetails}. Final scope, timeline and pricing are confirmed after understanding your requirements.
+
+    Our portfolio includes Little Artisan Bloom Bakes, APKS Organics and Smart Tally Path. You can explore these projects on our website.
+
+    GenZ Edu Tech is led by founder Megadharshini Kandhan. Our approach is practical and beginner friendly: learn with clarity, practise with purpose and build skills that can be applied.
+
+    To ask about courses, fees, batches, language learning or website development, contact our team by WhatsApp or phone at plus nine one, six three six nine two, one six zero seven six. You can also email genzedutech zero one at gmail dot com, or visit genzedutech dot in. Thank you for listening. We look forward to helping you learn, build and grow.`;
+  }, []);
+
+  const playVoiceGuide = () => {
+    if (!('speechSynthesis' in window)) {
+      window.alert('Voice playback is not supported in this browser. Please try the latest version of Chrome, Edge or Safari.');
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(voiceGuideText);
+    utterance.lang = 'en-IN';
+    utterance.rate = 0.94;
+    utterance.pitch = 1;
+    utterance.onstart = () => setVoiceStatus('speaking');
+    utterance.onend = () => setVoiceStatus('idle');
+    utterance.onerror = () => setVoiceStatus('idle');
+    window.speechSynthesis.speak(utterance);
+    setVoiceStatus('speaking');
+  };
+
+  const pauseVoiceGuide = () => {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.pause();
+    setVoiceStatus('paused');
+  };
+
+  const resumeVoiceGuide = () => {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.resume();
+    setVoiceStatus('speaking');
+  };
+
+  const stopVoiceGuide = () => {
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    setVoiceStatus('idle');
+  };
+
+  useEffect(() => () => {
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  }, []);
 
   // Reveal key content as it enters the viewport. Motion is disabled for
   // visitors who request reduced motion, and elements remain visible if the
@@ -174,6 +243,27 @@ export default function App() {
         </button>
       </div>
     </header>
+
+    <section className="voice-guide" aria-label="Listen to the GenZ Edu Tech introduction">
+      <div className="site-container voice-guide-inner">
+        <div className="voice-guide-copy">
+          <span className="voice-guide-icon"><Volume2 size={20} /></span>
+          <span><strong>Meet GenZ Edu Tech</strong><small>Listen to our academy, courses and services</small></span>
+        </div>
+        <div className="voice-guide-controls">
+          {voiceStatus === 'paused' ? (
+            <button className="voice-control voice-play" onClick={resumeVoiceGuide} aria-label="Resume voice introduction"><Play size={16} /> Resume</button>
+          ) : (
+            <button className="voice-control voice-play" onClick={playVoiceGuide} aria-label={voiceStatus === 'speaking' ? 'Restart voice introduction' : 'Play voice introduction'}>
+              <Play size={16} /> {voiceStatus === 'speaking' ? 'Restart' : 'Listen'}
+            </button>
+          )}
+          {voiceStatus === 'speaking' && <button className="voice-control" onClick={pauseVoiceGuide} aria-label="Pause voice introduction"><Pause size={16} /> Pause</button>}
+          {voiceStatus !== 'idle' && <button className="voice-control voice-stop" onClick={stopVoiceGuide} aria-label="Stop voice introduction"><Square size={14} /> Stop</button>}
+          <span className="voice-status" aria-live="polite">{voiceStatus === 'speaking' ? 'Playing' : voiceStatus === 'paused' ? 'Paused' : 'Optional audio guide'}</span>
+        </div>
+      </div>
+    </section>
 
     <main>
       <section className="hero" id="home">
