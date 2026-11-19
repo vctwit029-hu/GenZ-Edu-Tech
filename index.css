@@ -652,3 +652,77 @@ a:focus-visible,button:focus-visible{transition:outline-offset .2s ease}
   .course-card,.footer-main>* { animation:none!important; }
   .floating-whatsapp { animation:none!important; }
 }
+
+
+/* Developer portfolio proof points and light-theme readability */
+.developer-stats {
+  position:relative;
+  isolation:isolate;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  margin-top:34px;
+  padding:clamp(25px,4vw,42px);
+  overflow:hidden;
+  border:1px solid rgba(245,207,104,.28);
+  border-radius:26px;
+  background:
+    radial-gradient(circle at 92% 8%,rgba(245,207,104,.18),transparent 30%),
+    linear-gradient(125deg,#102d59,#071a33 72%);
+  box-shadow:0 22px 55px rgba(8,28,58,.16);
+  color:#f5f8ff;
+}
+.developer-stats:after {
+  content:"";position:absolute;z-index:-1;width:280px;height:280px;right:-110px;bottom:-190px;
+  border:1px solid rgba(245,207,104,.42);border-radius:50%;
+  box-shadow:0 0 0 28px rgba(255,255,255,.035),0 0 0 58px rgba(255,255,255,.025);
+}
+.developer-stat {
+  min-height:126px;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:18px;text-align:center;border:1px solid rgba(255,255,255,.16);
+  border-radius:19px;background:rgba(255,255,255,.07);
+  backdrop-filter:blur(8px);
+  transition:transform .35s ease,border-color .35s ease,background .35s ease;
+}
+.developer-stat-number {
+  display:block;font:900 clamp(2.7rem,6vw,4.2rem)/1 Manrope,sans-serif;
+  letter-spacing:-.06em;color:#ffe08a;text-shadow:0 8px 26px rgba(245,207,104,.2);
+}
+.developer-stat-label {
+  display:block;margin-top:12px;color:#f1f5fc;font-size:.92rem;font-weight:800;letter-spacing:.02em;
+}
+.developer-stats-note {
+  grid-column:1/-1;margin:0;text-align:center;color:#d4e0f2;font-size:.84rem;
+}
+@media(hover:hover) and (pointer:fine) {
+  .developer-stat:hover {transform:translateY(-6px);border-color:rgba(255,224,138,.65);background:rgba(255,255,255,.11)}
+}
+.site:not(.dark-mode) .developers-section .section-heading h2,
+.site:not(.dark-mode) .developers-section .dev-intro-copy h3,
+.site:not(.dark-mode) .developers-section .portfolio-heading h3,
+.site:not(.dark-mode) .developers-section .price-card h3 {color:#0b2342}
+.site:not(.dark-mode) .developers-section .section-heading p,
+.site:not(.dark-mode) .developers-section .dev-intro-copy p,
+.site:not(.dark-mode) .developers-section .portfolio-heading p,
+.site:not(.dark-mode) .developers-section .price-card p,
+.site:not(.dark-mode) .developers-section .price-card li,
+.site:not(.dark-mode) .developers-section .package-note {color:#354b67}
+.site:not(.dark-mode) .developers-section .eyebrow,
+.site:not(.dark-mode) .developers-section .package-number,
+.site:not(.dark-mode) .developers-section .text-link {color:#124f9f}
+.site:not(.dark-mode) .developers-section .price-card .package-price {color:#0b2342}
+.site:not(.dark-mode) .developers-section .portfolio-card>strong {color:#fff}
+.site:not(.dark-mode) .developers-section .portfolio-card .portfolio-link {color:#e1ebfb}
+.site:not(.dark-mode) .developers-section .portfolio-card:hover .portfolio-link {color:#ffe08a}
+.site:not(.dark-mode) .developers-section .dev-intro-card h3 {color:#fff}
+.site:not(.dark-mode) .developers-section .dev-intro-card p {color:#e0eaf8}
+.site:not(.dark-mode) .developers-section .dev-intro-card .check-list span {color:#f2f6ff}
+.site:not(.dark-mode) .developers-section .dev-intro-card .check-list svg {color:#ffe08a}
+@media(max-width:650px) {
+  .developer-stats {grid-template-columns:1fr;gap:12px;padding:20px}
+  .developer-stat {min-height:108px}
+  .developer-stats-note {grid-column:auto;line-height:1.65}
+}
+@media(prefers-reduced-motion:reduce) {
+  .developer-stat {transition:none}
+}
