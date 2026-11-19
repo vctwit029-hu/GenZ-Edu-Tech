@@ -371,3 +371,71 @@ p{color:inherit}
   .reveal-on-scroll { opacity: 1; transform: none; filter: none; }
   .hero-copy, .hero-visual-3d { animation: none !important; }
 }
+
+
+/* Readability pass: stronger text contrast in both themes. */
+.site:not(.dark-mode) {
+  --ink: #142b49;
+  --muted: #354b67;
+  --navy: #0b2342;
+  --blue: #1456ad;
+}
+.site:not(.dark-mode) h1,
+.site:not(.dark-mode) h2,
+.site:not(.dark-mode) h3,
+.site:not(.dark-mode) h4 { color: #0b2342; }
+.site:not(.dark-mode) .hero-copy h1 span { color: #124f9f; }
+.site:not(.dark-mode) .hero-copy>p,
+.site:not(.dark-mode) .section-heading p,
+.site:not(.dark-mode) .about-copy p,
+.site:not(.dark-mode) .founder-copy p,
+.site:not(.dark-mode) .impact-grid p,
+.site:not(.dark-mode) .dev-intro-copy p,
+.site:not(.dark-mode) .freelance-panel p,
+.site:not(.dark-mode) .contact-action p { color: #354b67; }
+.site:not(.dark-mode) .course-card>p,
+.site:not(.dark-mode) .benefit-card p,
+.site:not(.dark-mode) .price-card p,
+.site:not(.dark-mode) .price-card li,
+.site:not(.dark-mode) .impact-cards span,
+.site:not(.dark-mode) .quote-grid footer,
+.site:not(.dark-mode) .course-note,
+.site:not(.dark-mode) .package-note,
+.site:not(.dark-mode) .course-bottom small { color: #40536d; }
+.site:not(.dark-mode) .eyebrow,
+.site:not(.dark-mode) .course-category,
+.site:not(.dark-mode) .text-link,
+.site:not(.dark-mode) .syllabus-btn { color: #124f9f; }
+.site:not(.dark-mode) .course-bottom strong,
+.site:not(.dark-mode) .package-price,
+.site:not(.dark-mode) .impact-cards strong,
+.site:not(.dark-mode) .quote-grid p { color: #0b2342; }
+.site:not(.dark-mode) .nav-links>a:not(.btn),
+.site:not(.dark-mode) .brand { color: #0b2342; }
+.site:not(.dark-mode) .contact-action>small,
+.site:not(.dark-mode) .contact-action p { color: #354b67; }
+
+/* Keep dark-theme supporting copy bright enough against dark surfaces. */
+.dark-mode .hero-copy>p,
+.dark-mode .section-heading p,
+.dark-mode .about-copy p,
+.dark-mode .founder-copy p,
+.dark-mode .impact-grid p,
+.dark-mode .dev-intro-copy p,
+.dark-mode .freelance-panel p,
+.dark-mode .course-card>p,
+.dark-mode .benefit-card p,
+.dark-mode .price-card p,
+.dark-mode .price-card li,
+.dark-mode .course-note,
+.dark-mode .package-note,
+.dark-mode .course-bottom small,
+.dark-mode .impact-cards span,
+.dark-mode .quote-grid footer,
+.dark-mode .syllabus-modal>p,
+.dark-mode .modal-note { color: #c4d2e5; }
+.dark-mode .eyebrow,
+.dark-mode .course-category,
+.dark-mode .text-link,
+.dark-mode .syllabus-btn { color: #9bc5ff; }
+.dark-mode .course-enquire { color: #d5e7ff; }
