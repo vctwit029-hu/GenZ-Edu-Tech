@@ -76,8 +76,32 @@ If asked something not covered here, say you don't want to guess and offer to co
 
     const data = await response.json();
     if (!response.ok) {
-      console.error("OpenAI assistant error:", data?.error?.message || response.status);
-      return res.status(502).json({ error: "I couldn't answer just now. Please try again or contact our team on WhatsApp." });
+      const apiError = data?.error ?? {};
+      const errorCode = String(apiError.code || apiError.type || "");
+      const errorMessage = String(apiError.message || "Unknown OpenAI API error");
+      const requestId = response.headers.get("x-request-id") || "not-provided";
+      // Keep detailed diagnostics on the server only. Never expose credentials or raw upstream payloads.
+      console.error("OpenAI assistant error:", JSON.stringify({
+        status: response.status,
+        code: errorCode,
+        message: errorMessage,
+        requestId,
+        model: process.env.OPENAI_MODEL || "gpt-4.1-mini"
+      }));
+
+      let visitorMessage = "The AI service is temporarily unavailable. Please try again shortly.";
+      if (response.status === 401 || response.status === 403) {
+        visitorMessage = "The AI service configuration needs attention. Please notify the GenZ Edu Tech team.";
+      } else if (response.status === 404 || errorCode === "model_not_found") {
+        visitorMessage = "The AI model configured for this website is unavailable. Please notify the GenZ Edu Tech team.";
+      } else if (response.status === 429 && /quota|credit|billing|spend|usage_limit|insufficient_quota/i.test(errorCode + " " + errorMessage)) {
+        visitorMessage = "The AI service has reached its API usage or billing limit. The GenZ Edu Tech team needs to check its API billing settings.";
+      } else if (response.status === 429) {
+        visitorMessage = "The AI service is receiving too many requests. Please wait a moment and try again.";
+      } else if (response.status >= 500) {
+        visitorMessage = "The AI service is temporarily having trouble. Please try again in a moment.";
+      }
+      return res.status(502).json({ error: visitorMessage, requestId });
     }
 
     const answer = typeof data.output_text === "string" ? data.output_text.trim() : "";
