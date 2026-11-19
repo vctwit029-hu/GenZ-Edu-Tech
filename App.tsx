@@ -104,7 +104,10 @@ export default function App() {
   const chooseVoiceGuidance = (wantsGuidance: boolean) => {
     try { localStorage.setItem('genz-voice-choice', wantsGuidance ? 'yes' : 'no'); } catch {}
     setVoicePrompt(false);
-    if (wantsGuidance) setAssistantOpen(true);
+    if (wantsGuidance) {
+      setAssistantOpen(true);
+      speakAssistantReply("Welcome to GenZ Edu Tech. We help learners build practical skills through academy courses, career readiness training, language learning and freelancing guidance. We also create websites and digital solutions for businesses through GenZ Developers. Which area would you like to explore first?");
+    }
   };
 
   const speakAssistantReply = (message: string) => {
