@@ -307,3 +307,67 @@ p{color:inherit}
 .site:not(.dark-mode) .contact-action p{color:#536b89}
 .site:not(.dark-mode) .nav-links{background:rgba(248,251,255,.98)}
 .site:not(.dark-mode) .nav-links>a:not(.btn){color:#102d52}
+
+
+/* Motion system: cinematic entry, scroll reveals and tactile interactions. */
+@keyframes genz-hero-copy-in {
+  from { opacity: 0; transform: translate3d(0, 28px, 0); filter: blur(7px); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+}
+@keyframes genz-hero-visual-in {
+  from { opacity: 0; transform: perspective(1200px) translate3d(30px, 18px, -70px) rotateY(-9deg) scale(.94); }
+  to { opacity: 1; transform: perspective(1200px) translate3d(0, 0, 0) rotateY(0) scale(1); }
+}
+@keyframes genz-glow-drift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes genz-orbit-pulse {
+  0%, 100% { opacity: .45; filter: drop-shadow(0 0 0 rgba(245,207,104,0)); }
+  50% { opacity: .9; filter: drop-shadow(0 0 12px rgba(245,207,104,.35)); }
+}
+.hero-copy { animation: genz-hero-copy-in .9s cubic-bezier(.2,.75,.25,1) both; }
+.hero-visual-3d { animation: genz-hero-visual-in 1.15s .12s cubic-bezier(.2,.75,.25,1) both; }
+.hero .eyebrow { animation: genz-hero-copy-in .7s .08s both; }
+.hero-copy h1 { text-wrap: balance; }
+.hero-3d-ring-one { animation: genz-orbit-pulse 5s ease-in-out infinite; }
+.hero-3d-ring-two { animation: genz-orbit-pulse 6.5s 1s ease-in-out infinite; }
+.topline { background-size: 200% 100%; animation: genz-glow-drift 9s ease-in-out infinite; }
+.btn, .nav-links a, .theme-toggle, .mobile-toggle, .floating-whatsapp, .portfolio-card {
+  transition: transform .28s cubic-bezier(.2,.75,.25,1), box-shadow .28s, border-color .28s, background-color .28s, color .28s;
+}
+.btn:hover, .floating-whatsapp:hover { transform: translateY(-3px); }
+.btn:active, .filter-btn:active { transform: translateY(1px) scale(.985); }
+.portfolio-card:hover { transform: perspective(900px) translateY(-8px) rotateX(3deg); }
+.course-card, .benefit-card, .price-card, .quote-grid blockquote, .impact-cards > div {
+  will-change: transform;
+}
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0) scale(.985);
+  filter: blur(5px);
+  transition: opacity .75s cubic-bezier(.2,.75,.25,1),
+              transform .75s cubic-bezier(.2,.75,.25,1),
+              filter .75s cubic-bezier(.2,.75,.25,1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+.section-heading.is-visible h2 { animation: genz-hero-copy-in .65s both; }
+@media (hover: hover) and (pointer: fine) {
+  .nav-links>a:not(.btn):hover { transform: translateY(-2px); }
+  .theme-toggle:hover, .mobile-toggle:hover { transform: translateY(-2px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal-on-scroll { opacity: 1; transform: none; filter: none; }
+  .hero-copy, .hero-visual-3d { animation: none !important; }
+}
