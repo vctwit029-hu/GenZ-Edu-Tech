@@ -134,13 +134,20 @@ export default function App() {
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'The assistant is temporarily unavailable.');
-      const answer = String(data.answer || '').trim();
-      if (!answer) throw new Error('I could not prepare an answer. Please try again.');
+      const rawAnswer = String(data.answer || '').trim();
+      if (!rawAnswer) throw new Error('I could not prepare an answer. Please try again.');
+      const tourMatch = rawAnswer.match(/\\[TOUR:(home|about|courses|tamil-learning|crt|why-us|developers|testimonials|founder|contact)\\]/i);
+      const answer = rawAnswer.replace(/\\[TOUR:(?:home|about|courses|tamil-learning|crt|why-us|developers|testimonials|founder|contact)\\]/ig, '').trim();
       setAssistantMessages(current => [...current, { role: 'assistant', content: answer }]);
+      if (tourMatch?.[1]) {
+        const section = document.getElementById(tourMatch[1].toLowerCase());
+        section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
       speakAssistantReply(answer);
     } catch (error) {
       const messageText = error instanceof Error ? error.message : 'Something went wrong. Please try again.';
       setAssistantMessages(current => [...current, { role: 'assistant', content: messageText }]);
+      speakAssistantReply(messageText);
     } finally {
       setAssistantBusy(false);
     }
