@@ -561,7 +561,7 @@ html{scroll-behavior:smooth}
 .site-nav{transition:background .35s ease,box-shadow .35s ease}
 .nav-links>a:not(.btn),.footer-links a,.text-link,.course-enquire,.portfolio-link{transition:color .25s ease,transform .25s ease,gap .25s ease}
 .nav-links>a:not(.btn):hover{transform:translateY(-2px)}
-.theme-toggle,.mobile-toggle,.filter-btn,.syllabus-btn,.course-enquire,.assistant-launcher,.btn,.floating-whatsapp{transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease,background .28s ease,color .28s ease,border-color .28s ease}
+.theme-toggle,.mobile-toggle,.filter-btn,.syllabus-btn,.course-enquire,.btn,.floating-whatsapp{transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease,background .28s ease,color .28s ease,border-color .28s ease}
 .theme-toggle:hover,.mobile-toggle:hover,.filter-btn:hover,.syllabus-btn:hover,.course-enquire:hover,.floating-whatsapp:hover{transform:translateY(-3px) scale(1.025)}
 button:active,.btn:active,.filter-btn:active,.course-enquire:active{transform:scale(.96)}
 .course-card,.benefit-card,.price-card,.portfolio-card,.quote-grid blockquote,.crt-grid>*,.impact-cards>div{will-change:transform;transition:transform .38s cubic-bezier(.2,.8,.2,1),box-shadow .38s ease,border-color .3s ease}
@@ -572,3 +572,14 @@ button:active,.btn:active,.filter-btn:active,.course-enquire:active{transform:sc
 @keyframes modal-enter{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
 a:focus-visible,button:focus-visible{transition:outline-offset .2s ease}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.theme-toggle,.mobile-toggle,.filter-btn,.syllabus-btn,.course-enquire,.floating-whatsapp,.course-card,.benefit-card,.price-card,.portfolio-card{transition:none!important}}
+
+
+/* Fine-grained motion for every interactive option */
+.nav-links>a:not(.btn){transition:color .25s ease,transform .25s ease}
+.nav-links>a:not(.btn)::after{transition:right .3s cubic-bezier(.2,.8,.2,1),width .3s ease}
+.site a,.site button{ -webkit-tap-highlight-color:transparent }
+.site button:not(:disabled),.site a{transform-origin:center}
+.site button:not(:disabled):hover{filter:brightness(1.035)}
+.site input,.site textarea,.site select{transition:border-color .25s ease,box-shadow .25s ease,background .25s ease}
+.site input:focus,.site textarea:focus,.site select:focus{box-shadow:0 0 0 4px color-mix(in srgb,var(--blue) 18%,transparent)}
+.site .course-card,.site .price-card,.site .portfolio-card,.site .benefit-card{backface-visibility:hidden}
