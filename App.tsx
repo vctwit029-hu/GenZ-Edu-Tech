@@ -67,7 +67,8 @@ const portfolioProjects = [
   { name: 'Little Artisan Bloom Bakes', url: 'https://little-artisan-bloom-bakes.base44.app' },
   { name: 'APKS Organics', url: 'https://apks-organics.netlify.app' },
   { name: 'Smart Tally Path', url: 'https://smart-tally-path.base44.app' },
-  { name: 'SARA CATERING', url: 'https://sara-catering.vercel.app' }
+  { name: 'SARA CATERING', url: 'https://sara-catering.vercel.app' },
+  { name: 'LUXORA Luxury Resort', url: 'https://luxora-luxury-resort-rnegpx10n-gen-z-edu-tech.vercel.app' }
 ];
 
 const filters = ['All', 'Digital Skills', 'Programming', 'Career Skills', 'Placement Preparation', 'Languages'];
@@ -490,7 +491,7 @@ export default function App() {
               <span className="developer-stat-label">Projects completed</span>
             </div>
             <div className="developer-stat">
-              <span className="developer-stat-number">04</span>
+              <span className="developer-stat-number">05</span>
               <span className="developer-stat-label">Live sample projects showcased</span>
             </div>
             <p className="developer-stats-note">A small selection of our work is featured in the portfolio above.</p>
